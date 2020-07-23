@@ -1,0 +1,27 @@
+
+.validate-button {
+    display: flex;
+    justify-content: center;  
+} 
+
+.validate-button p {
+    margin-left: 0.3em;
+} 
+
+#validate-button {
+    background-color: #ff3dc2bb;
+    display: flex;
+    justify-content: center;
+    align-items: baseline;
+    border: none;
+    border-style: none;
+    border-radius: 20px;
+    font-family: "Open Sans", sans-serif;
+    font-weight: bold;
+    color: white;
+    height: 3em;
+    width: 15em;
+    font-size: 1em;
+    margin-top: 1em;  
+
+}

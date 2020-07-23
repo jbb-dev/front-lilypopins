@@ -2,7 +2,7 @@ import React, { useContext } from 'react'
 import { Link } from "react-router-dom";
 import './register.css'
 import './common/Buttons/Next'
-import Next from '../components/common/Buttons/Next'
+import ButtonValidate from '../components/common/Buttons/Validate'
 import Header from '../components/common/Header/Header'
 import SelectButton from '../components/common/Buttons/SelectButton'
 import { UserContext } from '../context/UserContext'
@@ -96,7 +96,7 @@ const RegisterStep3 = () => {
         </div>
   
         <Link to="/home" style={{ textDecoration: "none" }}>
-            <Next title='Etape suivante' />
+            <ButtonValidate title='Valider' onClick={()=> subscribe()}/>
         </Link>
 
   

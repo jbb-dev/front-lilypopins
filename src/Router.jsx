@@ -25,6 +25,7 @@ const Router = () => {
         <>
             <Switch>
                 <Route exact path="/login" component={Login} />
+                <Route exact path="/home" component={Home} />
                 <UserContext.Provider value={providerUserProfile}>
                     <Route exact path="/register" component={Register} />
                         <ChildrenContext.Provider value={providerChildrenProfile}>
@@ -32,7 +33,6 @@ const Router = () => {
                             <Route exact path="/register-step3" component={RegisterStep3} />
                         </ChildrenContext.Provider>
                 </UserContext.Provider>
-                <Route exact path="/home" component={Home} />
 
             </Switch>
         </>
