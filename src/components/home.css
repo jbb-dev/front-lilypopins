@@ -1,0 +1,77 @@
+/* Home Page : ACCEUIL */
+.mainHome {
+    display: flex;
+    align-items: center;
+    flex-flow: column nowrap;
+    background-image: url('http://www.atelier-de-jb.fr/wp-content/uploads/2020/07/home_background.jpg');
+  }
+
+  .welcome {
+    font-size: 1.4em;
+    margin-bottom: 0em;
+
+  }
+
+  .welcomeText {
+    font-size: 1em;
+    font-weight: 300;
+    padding: 1em;
+    text-align: center;
+    margin-bottom: 0em;
+  }
+  /* HEADER  */
+  .headerHome {
+    background-color: #893cc1;
+    height: 4.5em;
+    color : white;
+    display: flex;
+    justify-content: space-around;
+    align-items: baseline;
+    padding: 0.8em;
+    margin-bottom: 1em;
+    word-break: break-all !important;
+   
+}
+
+      /* menu button */
+  .homeBtn {
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+    flex-flow: row nowrap;
+    padding: 1em;
+    margin: 0.8em;
+    width: 18em;
+    height: 2.5em;
+    border-radius: 10px;
+    box-shadow: 1px 3px 3px 2px #77838F65;
+  }
+  
+  .textBtn {
+    font-family: 'Montserrat' sans-serif;
+    font-weight: 500;
+    font-size: 1.2em;
+    margin-left: 1em;
+  }
+
+ /* logout button */
+
+
+  .logout-button {
+    display: flex;
+    justify-content: center;  
+}
+#logout-button {
+    background-color: #ff3dc2bb;
+    border: none;
+    border-style: none;
+    border-radius: 15px;
+    font-family: "Open Sans", sans-serif;
+    font-weight: bold;
+    color: white;
+    height: 3em;
+    width: 20em;
+    font-size: 1em;
+    margin-top: 1em;
+   
+}

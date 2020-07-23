@@ -1,0 +1,65 @@
+
+  /* login page */
+
+  .mainLogin {
+    display: flex;
+    align-items: center;
+    flex-flow: column nowrap;
+    background-image: url('https://resize-elle.ladmedia.fr/rcrop/1098,768/img/var/plain_site/storage/images/love-sexe/psycho/interpretation-des-reves/sommeil-pourquoi-reve-t-on-davantage-pendant-le-confinement-et-pourquoi-il-ne-faut-pas-s-inquieter-3862800/93128225-1-fre-FR/Sommeil-pourquoi-reve-t-on-davantage-pendant-le-confinement-et-pourquoi-il-ne-faut-pas-s-inquieter.jpg');
+  }
+  
+  .login_page {
+    text-align: center;
+    margin-bottom: 10em;
+  }
+  .login_page p {
+    text-align: center;
+  }
+
+  .brandTitle h3 {
+    color: black;
+    font-size: 2em;
+    margin-top: 1.4em;
+  }
+
+  .login_forms {
+    padding: 0.2em;
+  }
+  .login_forms input {
+    background: #b0b9d380;
+    border: none;
+    border-radius: 3px;
+    height: 3em;
+    width: 18em;
+    margin: 0.2em;
+  }
+
+  .login_forms textarea {
+    display: flex;
+    flex-wrap: wrap;
+    height: 12em;
+    background: #b0b9d380;
+    border: none;
+    border-radius: 3px;
+    width: 18em;
+    margin: 0.2em;
+  }
+  
+  .login_low_text {
+    color: #893cc1;
+    font-weight: bold;
+  }
+  .login_mdp {
+    background-repeat: no-repeat;
+    background-size: 1.4em;
+    background-position: right;
+  }
+
+  .login_go_back {
+    color: #893cc1;
+    font-weight: 1em;
+  }
+
+  .create_account {
+    margin-top : 2em;
+  }

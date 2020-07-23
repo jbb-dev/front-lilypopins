@@ -1,0 +1,36 @@
+.selectBtn-list {
+    display: flex;
+    justify-content: space-evenly;
+    flex-flow: row wrap;
+    margin: 0.2em !important;
+    padding: 0.2em !important;
+    width: max-content;
+  }
+  .selectBtn-list label {
+    font-size : 1em !important;
+  }
+  
+  input[type="radio"].radioSelBtn {
+    display: none;
+  }
+  input[type="radio"].radioSelBtn + label {
+    padding: 0.5rem 1rem;
+    font-size: 1em;
+    line-height: 1.5;
+    border-radius: 0.3rem;
+    width: 5em;
+    text-align: center;
+    color: #fff;
+    background-color: #b0b9d380;
+    border: 1px solid transparent;
+    transition: all 0.15s ease-in-out;
+  }
+  input[type="radio"].radioSelBtn:checked + label {
+    background-color: #893cc1;
+    border-color: #893cc1;
+  }
+
+
+.select_sex {
+    display: flex;
+}

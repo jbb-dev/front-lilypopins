@@ -1,0 +1,18 @@
+.main-head {
+    background-color: #893cc1;
+    height: 3.5em;
+    color: white;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 0.8em;
+    margin-bottom: 1em;
+    width: 100%;
+  }
+  
+  #header {
+    margin-right: 0em;
+    text-align: center;
+    font-weight: 400;
+    font-size: 1.5em;
+  }
