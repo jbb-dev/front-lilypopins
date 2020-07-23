@@ -5,6 +5,9 @@ import Login from './components/Connexion/Login'
 import Register from './components/Register'
 import RegisterStep2 from './components/Register2'
 import RegisterStep3 from './components/Register3'
+import SearchResults from './components/pageSearch/SearchResults'
+import ResultDetails from './components/pageSearch/ResultDetails'
+
 import { UserContext } from './context/UserContext'
 import { userProfileContext } from './context/UserContext'
 import { ChildrenContext } from './context/ChildrenContext';
@@ -26,6 +29,8 @@ const Router = () => {
             <Switch>
                 <Route exact path="/login" component={Login} />
                 <Route exact path="/home" component={Home} />
+                <Route exact path="/search/results" component={SearchResults} />
+                <Route exact path="/search/results/:id" component={ResultDetails} />
                 <UserContext.Provider value={providerUserProfile}>
                     <Route exact path="/register" component={Register} />
                         <ChildrenContext.Provider value={providerChildrenProfile}>

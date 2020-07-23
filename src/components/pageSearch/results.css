@@ -1,0 +1,87 @@
+/* Page des resultats */
+
+.Result-Page {
+    display: flex;
+    flex-flow: column wrap;
+    margin-left: 2em;
+    margin-right: 2em;
+    padding-bottom: 2em;
+    }
+    
+    .Result-Page hr {
+      border-top: 1em thin;
+      width: 100%;
+    }
+    /* bouton de retour */
+    .Result-filterbarTop {
+      padding: 0em 1em 1em 0em;
+    }
+    .Result-filterbar-button {
+      background-color: white;
+      color: #ff3dc2bb;
+      border: solid 1px#ff3dc2bb;
+      border-radius: 20px;
+      width: 8em;
+      height: 2.5em;
+    }
+    /* bouton bas de page  */
+    .Result-filterbarBot {
+      display: flex;
+      justify-content: center;
+      padding: 0em 1em 1em 0em;
+    }
+
+/* card de l'annonce */
+    
+.mainResultCard .link {
+    display: flex;
+    margin-bottom: 2em;
+    border: 1px solid #893cc1;
+    padding: 1em;
+}
+    a {
+    text-decoration: none;
+    }
+
+    .contact_leftside{
+        display: flex;
+        flex-direction: column;
+    }
+        .avatar{
+            border-radius: 50%;
+            margin-right: 1em;
+            }
+        .name{
+            text-align: center;
+            color: black;
+        }
+
+    .contact_rightside{
+        background-color: #8a3cc17e;
+        display: flex;
+        align-items: center;
+    }
+        .biography {
+            color: white;
+            font-style: italic;
+            text-align: center;
+            overflow: hidden;
+            white-space: nowrap;
+            text-overflow: ellipsis;
+            width: 10em;
+        }
+
+/* Détail de l'annonce */
+
+.mainResultDetail {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+    .avatar{
+        margin: 0;
+        width: 40%;
+        height: auto;
+    }
+    

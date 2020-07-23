@@ -17,7 +17,6 @@ const RegisterStep3 = () => {
     const { childrenProfile, setChildrenProfile } = useContext(ChildrenContext)
 
     const subscribe = () => {
-        console.log('subscribe')
         Axios
           .post("http://localhost:4000/api/users", userProfile)
           .catch((err) => console.error(err))
@@ -39,7 +38,7 @@ const RegisterStep3 = () => {
                 className="register_input_text"
                 type="text"
                 placeholder=" Prénom de votre enfant"
-                // value={childrenProfile.child_firstname}
+                value={childrenProfile.child_firstname}
                 onChange={(e) =>
                   setChildrenProfile({ ...childrenProfile, child_firstname: e.target.value })
                 }
@@ -53,7 +52,7 @@ const RegisterStep3 = () => {
                 className="register_input_text"
                 type="number"
                 placeholder=" Age de votre enfant"
-                // value={childrenProfile.child_age}
+                value={childrenProfile.child_age}
                 onChange={(e) =>
                   setChildrenProfile({ ...childrenProfile, child_age: Number(e.target.value) })
                 }

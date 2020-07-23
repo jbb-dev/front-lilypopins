@@ -36,7 +36,7 @@
       /* menu button */
   .homeBtn {
     display: flex;
-    justify-content: flex-start;
+    justify-content: center;
     align-items: center;
     flex-flow: row nowrap;
     padding: 1em;
@@ -45,6 +45,7 @@
     height: 2.5em;
     border-radius: 10px;
     box-shadow: 1px 3px 3px 2px #77838F65;
+    color: black
   }
   
   .textBtn {
