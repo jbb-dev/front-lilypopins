@@ -1,5 +1,6 @@
 import React, { useContext } from 'react'
 import { Link } from "react-router-dom";
+import Axios from 'axios'
 import './register.css'
 import './common/Buttons/Next'
 import ButtonValidate from '../components/common/Buttons/Validate'
@@ -17,9 +18,9 @@ const RegisterStep3 = () => {
 
     const subscribe = () => {
         console.log('subscribe')
-        // Axios.post("http://localhost:4000/api/users", userProfile)
-        //   .catch((err) => console.error(err))
-        //   .finally(setSuccess(true));
+        Axios
+          .post("http://localhost:4000/api/users", userProfile)
+          .catch((err) => console.error(err))
       };
     
     return(
