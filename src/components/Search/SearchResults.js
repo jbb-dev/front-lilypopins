@@ -4,6 +4,8 @@ import Axios from 'axios'
 import ResultCard from './ResultCard'
 import Header from '../common/Header/Header'
 import './results.css'
+import Back from '../common/Buttons/Back'
+
 
 
 
@@ -29,14 +31,9 @@ const SearchResults = () => {
         <Header className="header" title="Résultats de la recherche" />
         
           <div className="Result-Page">
-            <div className="Result-filterbarTop">
-                <Link to='home'>
-                    <button className="Result-filterbar-button">
-                    Accueil
-                    </button>
-                </Link>
-            </div>
-
+          
+          <Back title='Précédent' link='/select' />
+        
         {searchResults.map(e=> 
           <ResultCard 
             fullResult={e} 

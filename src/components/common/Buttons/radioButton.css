@@ -1,0 +1,42 @@
+.radioButton-check {
+    display: flex;
+    justify-content: space-between;
+  }
+  
+  .radioButton-check input {
+    margin-left: auto;
+  }
+  
+  input[type="radio"].radioButton-check-input {
+    display: none;
+  }
+  input[type="radio"].radioButton-check-input + label {
+    position: relative;
+    padding-left: 1.3rem;
+  }
+  input[type="radio"].radioButton-check-input + label::before,
+  input[type="radio"].radioButton-check-input + label::after {
+    display: block;
+    position: absolute;
+    box-sizing: border-box;
+    content: "";
+    border-radius: 1rem;
+  }
+  input[type="radio"].radioButton-check-input + label::before {
+    bottom: 0;
+    left: 0;
+    border: 1px solid #ccc;
+    background-color: #eee;
+    width: 1rem;
+    height: 1rem;
+    border: #5d5aa4 solid 1px;
+  }
+  input[type="radio"].radioButton-check-input + label::after {
+    bottom: 3px;
+    left: 3px;
+    width: calc(1rem - 6px);
+    height: calc(1rem - 6px);
+  }
+  input[type="radio"].radioButton-check-input:checked + label::after {
+    background-color: #893cc1;
+  }

@@ -1,8 +1,9 @@
 .next-button {
     display: flex;
     justify-content: center;  
+    margin-bottom: 2em;
 }
-#next-button {
+.next-button-active {
     background-color: #ff3dc2bb;
     border: none;
     border-style: none;
@@ -15,3 +16,16 @@
     font-size: 1em;
     margin-top: 1em;  
 }
+.next-button-passive {
+    background-color: grey;
+    border: none;
+    border-style: none;
+    border-radius: 20px;
+    font-family: "Open Sans", sans-serif;
+    font-weight: bold;
+    color: white;
+    height: 3em;
+    width: 15em;
+    font-size: 1em;
+    margin-top: 1em;     
+    }

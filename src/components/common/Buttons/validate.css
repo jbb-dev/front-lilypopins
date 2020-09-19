@@ -2,17 +2,18 @@
 .validate-button {
     display: flex;
     justify-content: center;  
+    margin-bottom: 2em;
 } 
 
 .validate-button p {
     margin-left: 0.3em;
+    font-family: "Open Sans", sans-serif;
+    font-weight: bold !important;
+    font-size: 1em !important;
 } 
 
-#validate-button {
+.validate-button-active {
     background-color: #ff3dc2bb;
-    display: flex;
-    justify-content: center;
-    align-items: baseline;
     border: none;
     border-style: none;
     border-radius: 20px;
@@ -23,5 +24,29 @@
     width: 15em;
     font-size: 1em;
     margin-top: 1em;  
-
+    display: flex;
+    align-items: baseline;
+    justify-content: center;
 }
+.validate-button-passive {
+    background-color: grey;
+    border: none;
+    border-style: none;
+    border-radius: 20px;
+    font-family: "Open Sans", sans-serif;
+    font-weight: bold;
+    color: white;
+    height: 3em;
+    width: 15em;
+    font-size: 1em;
+    margin-top: 1em; 
+    display: flex;
+    align-items: baseline;
+    justify-content: center; 
+    }
+    
+.button-content {
+    display: flex;
+    align-items: baseline;
+    margin-top: 0.3em;
+    }

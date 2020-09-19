@@ -6,23 +6,12 @@
     margin-left: 2em;
     margin-right: 2em;
     padding-bottom: 2em;
+    text-align: center;
     }
     
     .Result-Page hr {
       border-top: 1em thin;
       width: 100%;
-    }
-    /* bouton de retour */
-    .Result-filterbarTop {
-      padding: 0em 1em 1em 0em;
-    }
-    .Result-filterbar-button {
-      background-color: white;
-      color: #ff3dc2bb;
-      border: solid 1px#ff3dc2bb;
-      border-radius: 20px;
-      width: 8em;
-      height: 2.5em;
     }
     /* bouton bas de page  */
     .Result-filterbarBot {
@@ -47,9 +36,10 @@
         display: flex;
         flex-direction: column;
     }
-        .avatar{
+    .contact_leftside .avatar{
             border-radius: 50%;
             margin-right: 1em;
+            width: auto;
             }
         .name{
             text-align: center;
@@ -83,5 +73,14 @@
         margin: 0;
         width: 40%;
         height: auto;
+        border-radius: 50%;
     }
-    
+
+    .user_identity{
+        display: flex;
+    }
+
+    .user_identity p{
+        margin-right: 0.3em;        
+    }
+     

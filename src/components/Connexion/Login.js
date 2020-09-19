@@ -1,25 +1,37 @@
 import React, {useState} from 'react'
-import { Link } from "react-router-dom";
+import { Link, Redirect } from "react-router-dom";
 import './login.css'
 import Next from '../common/Buttons/Next'
 import Header from '../common/Header/Header'
+import Axios from 'axios'
 
 
 const Login = () => {
 
-    const [dataUser, setDataUser] = useState({
-        user_email: "",
-        user_password: "",
-      });
+    // By default, user is not logged
+    const [logged, setLogged] = useState(false)
 
-    const subscribe = () => {
-        console.log('subscribe')
-        // Axios.post("http://localhost:4000/api/users", dataUser)
-        //   .catch((err) => console.error(err))
-        //   .finally(setSuccess(true));
-      };
+    const [dataUser, setDataUser] = useState({
+        email: "",
+        password: "",
+      });
+    // Récupération des erreurs serveur (status 400) lors du login (si erreur existante)
+    const [error, setError] = useState(null)
+
+    const login = () => {
+        Axios
+        .post("http://localhost:4000/api/users/login", dataUser)
+        .then((res) => {
+            localStorage.setItem("token", res.data.token)
+            setLogged(true)
+        }) 
+        .catch((err) => setError(err.response.data.error))
+    }
+
     
     return(
+    <>
+        {logged ? <Redirect to="/home" /> : null}
 
         <div className='mainLogin'>
 
@@ -29,6 +41,8 @@ const Login = () => {
                 <h3>Lily'Poppins</h3>
             </div>
 
+            {error !== null ? <div class="alert alert-danger" role="alert">{error}</div> : null}
+
             <div className="login_page">
                 <form className="login_forms">
                     <label>
@@ -37,9 +51,9 @@ const Login = () => {
                         type="email"
                         placeholder=" Adresse mail"
                         required
-                        value={dataUser.user_email}
+                        value={dataUser.email}
                         onChange={(e) =>
-                        setDataUser({ ...dataUser, user_email: e.target.value })
+                        setDataUser({ ...dataUser, email: e.target.value })
                         }
                     />
                     </label>
@@ -51,19 +65,17 @@ const Login = () => {
                         type="password"
                         placeholder=" Mot de passe"
                         required
-                        value={dataUser.user_password}
+                        value={dataUser.password}
                         onChange={(e) =>
-                        setDataUser({ ...dataUser, user_password: e.target.value })
+                        setDataUser({ ...dataUser, password: e.target.value })
                         }
                     />
                     </label>
                 </form>
-
-                <Link to="/home" style={{ textDecoration: "none" }}>
-                    <Next title='Se connecter' onClick={() => subscribe()}/>
-                </Link>
-
-
+                { dataUser.email && dataUser.password !== '' ? 
+                <Next title='Se connecter' onClick={() => login()} status='active'/>
+                : <Next title='Se connecter' status='passive'/>
+                }
                 <div className='create_account'>
                     <p>Pas de compte ? </p>
                     <Link to="/register" style={{ textDecoration: "none" }}>
@@ -73,7 +85,8 @@ const Login = () => {
 
             </div>
       </div>
-      )
+    </>
+    )
 }
 
 export default Login

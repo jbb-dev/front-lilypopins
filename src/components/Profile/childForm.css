@@ -1,0 +1,17 @@
+.child-form {
+    display: flex;
+    justify-content: center;
+    width: 18em;
+}
+
+.child-image {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+#child-avatar {
+    border-radius: 50%;
+    width: 40%;
+    margin-bottom: 1em;
+}

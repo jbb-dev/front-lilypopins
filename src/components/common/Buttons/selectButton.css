@@ -1,10 +1,6 @@
 .selectBtn-list {
     display: flex;
-    justify-content: space-evenly;
-    flex-flow: row wrap;
-    margin: 0.2em !important;
     padding: 0.2em !important;
-    width: max-content;
   }
   .selectBtn-list label {
     font-size : 1em !important;
@@ -20,17 +16,20 @@
     border-radius: 0.3rem;
     width: 5em;
     text-align: center;
-    color: #fff;
+    color: grey;
     background-color: #b0b9d380;
     border: 1px solid transparent;
     transition: all 0.15s ease-in-out;
+    margin-bottom: 0.4em
   }
   input[type="radio"].radioSelBtn:checked + label {
     background-color: #893cc1;
     border-color: #893cc1;
+    color : white;
   }
 
 
 .select_sex {
     display: flex;
+    justify-content: space-between;
 }

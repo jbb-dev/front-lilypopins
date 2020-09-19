@@ -1,0 +1,20 @@
+
+.main-add-child {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    border : 1px dashed #893cc1;
+    height: 10em; 
+    margin-bottom: 1em;
+    color: black;
+}
+    .add-icon-button {
+        color : #893cc1;
+        font-size: 30px
+    }
+
+.main-add-child:hover {
+    background-color: #8a3cc15e;
+    color : white;
+}

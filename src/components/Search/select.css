@@ -1,0 +1,26 @@
+.button-back {
+    margin-left: 2em;
+}
+
+.select-page {
+        display: flex;
+        flex-flow: column wrap;
+        margin-left: 2em;
+        margin-right: 2em;
+        text-align: center;            
+    }
+
+    .select-title h4{
+        text-align: center;
+    }
+    
+        .time {
+            display: flex;
+            flex-direction: column;
+        }
+
+        .date {
+            display: flex;
+            justify-content: center;
+        }
+

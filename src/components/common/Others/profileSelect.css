@@ -1,0 +1,22 @@
+table, td {
+    border : 1px solid #ff3dc2bb;
+    text-align: center;
+}
+
+table {
+    margin-bottom: 2em;
+}
+
+td {
+    width: 8em;
+}
+
+.active {
+    background-color: #ff3dc2bb;
+    color: white;
+}
+
+.passive {
+    background-color: white; 
+    color : #ff3dc2bb;
+}

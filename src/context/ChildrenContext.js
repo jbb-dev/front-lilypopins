@@ -1,11 +1,12 @@
 import { createContext } from 'react'
 
 export const childrenProfileContext = {
-    child_firstname: '',
-    child_age: null,
-    child_biography : '',
-    child_sex : ''
-
+    firstname: '',
+    age: '',
+    section : '',
+    biography : '',
+    sex : '',
+    avatar : null,
 }
 
 export const ChildrenContext = createContext(null)

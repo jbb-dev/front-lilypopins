@@ -5,9 +5,11 @@ const ButtonValidate = (props) => {
 
 return (
     <div className="validate-button">
-        <button id="validate-button" onClick={props.onClick}>
-            <i class="fas fa-check"></i>
-            <p>{props.title}</p>
+        <button id="validate-button" onClick={props.onClick} className={props.status === "active" ? "validate-button-active" : "validate-button-passive"}>
+            <div className='button-content'>
+                <i className="fas fa-check"></i>
+                <p>{props.title}</p>
+            </div>
         </button>
     </div>
     )

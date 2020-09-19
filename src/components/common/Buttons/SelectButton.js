@@ -9,7 +9,7 @@ const SelectButton = (props) => {
             <input type="radio" class="radioSelBtn" 
             id={props.radioSelBtnId} 
             name={props.radioSelBtnName} 
-            value={props.radioSelBtnValue} 
+            value={props.value} 
             onClick={props.onClick}
             />
             <label for={props.radioSelBtnId}>{props.radioSelBtnId} </label>

@@ -7,7 +7,7 @@ const Footer = () => {
       <div className="main-footer">
       </div>
     </>
-  );
-};
+  )
+}
 
 export default Footer;

@@ -1,0 +1,9 @@
+.frequencyDiv {
+    display: flex;
+    align-items: baseline;
+    justify-content: space-between;
+    color : black;
+  }
+  .frequencyDiv h5 {
+    padding: 0.2em;
+  }

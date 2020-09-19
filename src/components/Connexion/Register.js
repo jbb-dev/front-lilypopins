@@ -1,9 +1,9 @@
 import React, { useContext } from 'react'
 import { Link } from "react-router-dom";
 import './register.css'
-import Next from '../components/common/Buttons/Next'
-import Header from '../components/common/Header/Header'
-import { UserContext } from '../context/UserContext'
+import Next from '../common/Buttons/Next'
+import Header from '../common/Header/Header'
+import { UserContext } from '../../context/UserContext'
 
 
 const Register = () => {
@@ -11,13 +11,6 @@ const Register = () => {
 
     const { userProfile, setUserProfile } = useContext(UserContext)
 
-
-    const subscribe = () => {
-        console.log('subscribe')
-        // Axios.post("http://localhost:4000/api/users", userProfile)
-        //   .catch((err) => console.error(err))
-        //   .finally(setSuccess(true));
-      };
     
     return(
 
@@ -35,9 +28,9 @@ const Register = () => {
                 type="email"
                 placeholder=" Adresse mail"
                 required
-                value={userProfile.user_email}
+                value={userProfile.email}
                 onChange={(e) =>
-                  setUserProfile({ ...userProfile, user_email: e.target.value })
+                  setUserProfile({ ...userProfile, email: e.target.value })
                 }
               />
             </label>
@@ -49,19 +42,23 @@ const Register = () => {
                 type="password"
                 placeholder=" Mot de passe"
                 required
-                value={userProfile.user_password}
+                value={userProfile.password}
                 onChange={(e) =>
-                  setUserProfile({ ...userProfile, user_password: e.target.value })
+                  setUserProfile({ ...userProfile, password: e.target.value })
                 }
               />
             </label>
           </form>
         </div>
-  
-        <Link to="/register-step2" style={{ textDecoration: "none" }}>
-            <Next title='Etape suivante' onClick={() => subscribe()}/>
-        </Link>
-    
+        { userProfile.email && userProfile.password !== '' ? 
+          <div>
+            <Link to="/register-step2" style={{ textDecoration: "none" }}>
+                <Next title='Etape suivante' status={'active'}/>
+            </Link>
+          </div>
+          :           
+              <Next title='Etape suivante' status='passive'/>
+        }
         <div>
           <p>Vous avez déjà un compte ?</p>
           <Link to="/login" style={{ textDecoration: "none" }}>

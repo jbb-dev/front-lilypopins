@@ -1,0 +1,21 @@
+    /* bouton de retour */
+      .back-button {
+        background-color: white;
+        color: #ff3dc2bb;
+        border: solid 1px#ff3dc2bb;
+        border-radius: 20px;
+        width: 8em;
+        height: 2.5em;
+        margin-bottom: 1em;
+      }
+
+      .back-button:hover {
+        background-color: #ff3dc2bb;
+        color: white;
+        border: solid 1px white;
+        border-radius: 20px;
+        width: 8em;
+        height: 2.5em;
+        margin-bottom: 1em;
+      }
+  
