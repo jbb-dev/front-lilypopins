@@ -6,13 +6,14 @@ const SelectButton = (props) => {
     return (
         <div>
         <div className="selectBtn-list">
-            <input type="radio" class="radioSelBtn" 
+            <input type="radio" className="radioSelBtn" 
             id={props.radioSelBtnId} 
             name={props.radioSelBtnName} 
-            value={props.value} 
+            value={props.radioSelBtnValue} 
             onClick={props.onClick}
+            onChange={props.onChange}
             />
-            <label for={props.radioSelBtnId}>{props.radioSelBtnId} </label>
+            <label htmlFor={props.radioSelBtnId}>{props.radioSelBtnId} </label>
         </div>
         </div>
     

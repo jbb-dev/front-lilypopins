@@ -22,5 +22,13 @@
         .date {
             display: flex;
             justify-content: center;
+            margin-bottom: 1em;
         }
 
+
+        .react-datepicker-wrapper {
+            display: inline-block;
+            padding: 0;
+            border: 0;
+            margin-bottom: 1em;
+        }

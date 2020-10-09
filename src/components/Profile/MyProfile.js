@@ -56,9 +56,6 @@ const MyProfile = () => {
     setModif(!modif);
   };
 
-  // Check password confirmation :
-  const [validPW, setValidPW] = useState(null);
-
     // Start to catch user info and then, save it in the dataUser
   useEffect(() => {
     getMyProfile()
@@ -106,17 +103,24 @@ const MyProfile = () => {
       
       dataUser === null ?
       <div>
-        <p style={{'text-align' : 'center'}}>Chargement en cours...</p>
+        <p style={{'textAlign' : 'center'}}>Chargement en cours...</p>
       </div>
 
       :
       <div className="Profile-Page">
           <Back title='Accueil' link='/home' />
 
-          <ProfileSelect status={ {
-            me : 'active',
-            children : 'passive'
-          }}/>
+          <ProfileSelect 
+            title= {{
+              option1 : 'Moi',
+              option2 : 'Mes enfants' }}
+            status={{
+              option1 : 'active',
+              option2 : 'passive' }}
+            link = {{
+              option1 : '/my-profile',
+              option2 : '/my-children' }}
+          />
 
 
             {dataUser.avatar === null ? 
@@ -247,7 +251,7 @@ const MyProfile = () => {
 
         <h5>Mes dispos pour garder des enfants :</h5>
         {modif ? (
-        <div className='availabilities'>
+        <div className='profile_availabilities'>
           <div className='day-available'>
             <div className="day">
               <p>Lundi</p>

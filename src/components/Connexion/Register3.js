@@ -29,7 +29,7 @@ const RegisterStep3 = () => {
 
         <div className='mainRegister'>
 
-        <Header title='Inscription- étape 3/5' />
+        <Header title='Inscription- étape 3/3' />
 
         <h3 className='welcome'>Vos créneaux possibles pour garder les enfants des autres</h3>
         <p className='welcome-text'>Ces créneaux serviront aux autres parents pour connaitre vos disponibilités</p>

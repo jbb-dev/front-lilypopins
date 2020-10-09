@@ -15,7 +15,7 @@ const RegisterStep2 = () => {
 
         <div className='mainRegister'>
 
-        <Header title='Inscription- étape 2/5' />
+        <Header title='Inscription- étape 2/3' />
 
         <h3 className='welcome'>Présentez-vous</h3>
 

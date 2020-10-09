@@ -1,40 +1,44 @@
-import React, { useState } from 'react' 
+import React, { useState, useContext } from 'react' 
 import { Link } from 'react-router-dom'
 import Header from '../common/Header/Header'
 import Back from '../common/Buttons/Back'
-import './select.css'
+import './search.css'
+import Next from '../common/Buttons/Next'
+import { SearchContext } from '../../context/SearchContext'
 import DatePicker, { registerLocale } from "react-datepicker"
 import "react-datepicker/dist/react-datepicker.css"
-import ButtonValidate from '../common/Buttons/Validate'
 import fr from "date-fns/locale/fr"
-registerLocale("fr", fr);
+import { set } from 'date-fns'
+registerLocale("fr", fr)
+ 
+const Search = () => {
 
-const Select = () => {
+    const { searchContext, setSearchContext } = useContext(SearchContext)
 
     const [startDate, setStartDate] = useState(null)
-    // const correctDate = startDate.toLocaleDateString()
-
     const [startHour, setStartHour] = useState(null)
     const [endHour, setEndHour] = useState(null)
 
-    const convertDate = date => {
-        let d = date
-        let utcDate = d.getUTCDate() 
-        let month = d.getUTCMonth() + 1 // Since getUTCMonth() returns month from 0-11 not 1-12
-        let year = d.getUTCFullYear()
-        let dateStr = date + "/" + month + "/" + year;
-        return utcDate
+    const convertDateToDay = date => {
+        let jourSemaine = date.getDay();
+        // let jourMois = date.getDate();
+        // let mois = date.getMonth();
+        // let annee = date.getFullYear();
+        // let heures = date.getHours();
+        // let heuresUTC = date.getUTCHours();
+        // let minutes = date.getMinutes();
+        // let secondes = date.getSeconds();
+        // let ms = date.getMilliseconds();
+        return jourSemaine
     }
-
+    
 
     return (
         <>
             <Header title='Faire garder mon enfant'/>
                 <div className='button-back'>
                     <Back title='Accueil' link='/home' />
-                    <button onClick={() => console.log(convertDate(startDate))}>Clic</button>
                 </div>
-                {/* <button onClick={() => console.log(startDate)}>StartDate</button> */}
                 <div className="select-page">
 
                     <div className='select-title'>
@@ -44,7 +48,10 @@ const Select = () => {
                         <DatePicker 
                             inline
                             selected={startDate} 
-                            onChange={date => setStartDate(date)}
+                            onChange={date => {
+                                setStartDate(date)
+                                setSearchContext({...searchContext, date : date})
+                            }}
                             dateFormat="dd/MM/yyyy"
                             locale="fr"                
                         />
@@ -56,7 +63,10 @@ const Select = () => {
                             <h4>A partir de quelle heure ?</h4>
                         </div>
                             <DatePicker
-                                onChange={hour => setStartHour(hour)}
+                                onChange={hour => {
+                                    setStartHour(hour)
+                                    setSearchContext({...searchContext, startHour: hour }) 
+                                }}
                                 showTimeSelect
                                 showTimeSelectOnly
                                 selected={startHour} 
@@ -76,7 +86,10 @@ const Select = () => {
                         </div>
                         <DatePicker
                             selected={endHour}
-                            onChange={hour => setEndHour(hour)}
+                            onChange={hour => {
+                                setEndHour(hour)
+                                setSearchContext({...searchContext, endHour: hour }) 
+                                }}
                             showTimeSelect
                             showTimeSelectOnly
                             timeIntervals={15}
@@ -90,9 +103,11 @@ const Select = () => {
 
                 {endHour !== null ?
                     <Link to={{pathname: '/search/results'}}>
-                        <ButtonValidate title="Chercher un parent" status='active'/>
+                        <Next title="Chercher un parent" status='active'/>
                     </Link>
-                : null }
+                :   
+                    <Next title="Chercher un parent" status='passive'/>
+                }
 
             </div>
         </>
@@ -100,4 +115,4 @@ const Select = () => {
 }
 
 
-export default Select 
+export default Search

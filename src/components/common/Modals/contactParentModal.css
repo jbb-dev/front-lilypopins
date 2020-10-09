@@ -1,0 +1,50 @@
+.main-contact-parent-modal {
+    display: flex;
+    justify-content: center;  
+    margin-bottom: 2em;
+    background-color: #ff3dc2bb;
+    border: none;
+    border-style: none;
+    border-radius: 20px;
+    font-family: "Open Sans", sans-serif;
+    color: white;
+    height: 3em;
+    width: 15em;
+    margin-top: 1em;  
+}
+
+.main-contact-parent-modal-button {
+    background-color: transparent;
+    border : none;
+}
+
+.main-contact-parent-modal-button.btn-secondary {
+    color: #fff;
+    background-color: transparent;
+    border-color: none;
+}
+
+.main-contact-parent-modal-button.btn-secondary:not(:disabled):not(.disabled):active {
+    background-color: transparent;
+    border-color: none;
+}
+
+.contact-parent_forms textarea {
+    display: flex;
+    flex-wrap: wrap;
+    height: 12em;
+    background: #b0b9d380;
+    border: none;
+    border-radius: 3px;
+    width: 20em;
+    margin-left: -0.2em;
+}
+
+.modal-content {
+    margin-top : 10em;
+}
+
+#contact-parent-send-message {
+    background-color: #ff3dc2bb;
+    border : 1px solid white;
+}

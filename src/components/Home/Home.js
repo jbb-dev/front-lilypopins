@@ -36,17 +36,17 @@ const Home = () => {
             <h3 className='welcome'>Bienvenue sur LilyPopins !</h3>
             <p className='welcomeText'>Le baby-sitting collaboratif entre parents</p>
 
-            <Link to="/select" style={{ textDecoration: "none" }}>
+            <Link to="/search" style={{ textDecoration: "none" }}>
                 <div className='homeBtn' >
                     <i className="fas fa-search"></i>
                     <p className='textBtn'> Faire garder mon enfant </p>
                 </div>
             </Link>
             
-            <Link to="/" style={{ textDecoration: "none" }}>
+            <Link to="/follow-up" style={{ textDecoration: "none" }}>
                 <div className='homeBtn' >
                     <i className="fas fa-eye"></i>
-                    <p className='textBtn'> Suivre mes annonces </p>
+                    <p className='textBtn'> Mon suivi des gardes </p>
                 </div>
             </Link>
 
@@ -63,6 +63,7 @@ const Home = () => {
                     <p className='textBtn'> Mon profil utilisateur </p>
                 </div>
             </Link>
+
 
             <div>
                 <Link to="/login" style={{ textDecoration: "none" }}>

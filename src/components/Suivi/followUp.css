@@ -1,0 +1,9 @@
+.FollowUp-Page {
+    display: flex;
+    justify-content: center;
+    flex-flow: column wrap;
+    margin-left: 2em;
+    margin-right: 2em;
+    padding-bottom: 2em;
+    width: 20em;
+  }

@@ -1,0 +1,72 @@
+/* Détail de l'annonce */
+
+.main-result-detail {
+    display: flex;
+    justify-content: center;
+    flex-flow: column wrap;
+    margin-left: 2em;
+    margin-right: 2em;
+    padding-bottom: 2em;
+    width: 20em;
+}
+.parent-avatar{
+    margin-bottom: 1em;
+    width: 40%;
+    height: auto;
+    border-radius: 50%;
+}
+
+.parent-info {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-flow: column wrap;
+   }
+ 
+.biography {
+    font-style: italic;
+    text-align: center;
+}
+
+.parent-availabilities {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin-bottom: 1em;
+}
+
+.parent-children {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+h5{
+    text-align: center;
+}
+
+.loading {
+    margin-left: 2em;
+}
+
+.toggle-parent-button{
+    width: 20em;
+    color : #ff3dc2bb;
+    background-color : white;
+    border : 1px solid #ff3dc2bb;
+    height: 3em;
+}
+
+.toggle-parent-button:hover{
+    width: 20em;
+    color : white;
+    background-color : #ff3dc2bb;
+    border : 1px solid white;
+}
+
+.contact-parent-modal {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin-top : 2em;
+}

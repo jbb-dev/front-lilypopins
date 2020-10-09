@@ -2,13 +2,10 @@ import React, { useState, useContext } from 'react'
 import { Redirect } from "react-router-dom"
 import Header from '../common/Header/Header'
 import Back from '../common/Buttons/Back'
-// import Carousel from "@brainhubeu/react-carousel";
-// import "@brainhubeu/react-carousel/lib/style.css";
-import CarouselAvatar from '../common/Others/CarouselAvatar'
 import SelectButton from '../common/Buttons/SelectButton'
 import SectionChild from '../common/Others/SectionChild'
 import Validate from '../common/Buttons/Validate'
-import './childForm.css'
+import './newChildForm.css'
 import { ChildrenContext } from '../../context/ChildrenContext'
 import Axios from 'axios'
 import { avatarGirl } from '../common/Others/avatar'
@@ -16,7 +13,7 @@ import { avatarBoy } from '../common/Others/avatar'
 
 
 
-const ChildForm = () => {
+const NewChildForm = () => {
 
     const { childrenProfile, setChildrenProfile } = useContext(ChildrenContext)
 
@@ -25,6 +22,7 @@ const ChildForm = () => {
     const [error, setError] = useState(null)
 
     const [hasClickedOnSex, setHasClickedOnSex] = useState(false)
+
 
     // create the child in bdd
     const token = localStorage.token 
@@ -87,7 +85,7 @@ const ChildForm = () => {
                             {childrenProfile.sex === 'boy' ? previousImage(avatarBoy, childrenProfile.avatar) 
                             : previousImage(avatarGirl, childrenProfile.avatar)} 
                             }>
-                            <i class="fas fa-chevron-left" ></i>
+                            <i class="fas fa-chevron-left" id='chevron-left'></i>
                         </div>
                         <img src={childrenProfile.avatar !== null ? childrenProfile.avatar : defaultAvatar} id='child-avatar' />
                         <div className='chevron-right' 
@@ -95,7 +93,7 @@ const ChildForm = () => {
                                         {childrenProfile.sex === 'boy' ? nextImage(avatarBoy, childrenProfile.avatar)
                                         : nextImage(avatarGirl, childrenProfile.avatar)} 
                                     }>
-                            <i class="fas fa-chevron-right"></i>
+                            <i class="fas fa-chevron-right" id='chevron-right'></i>
                         </div>
                     </div>
                 : null }
@@ -105,23 +103,24 @@ const ChildForm = () => {
                             radioSelBtnId='Garçon'
                             radioSelBtnValue='boy'
                             radioSelBtnName='sex'
-                            onClick={(e) => {
-                                setChildrenProfile({...childrenProfile, sex: e.target.value })
+                            onClick={() => {
                                 setHasClickedOnSex(true)
-                                setDefaultAvatar(avatarBoy[0])
-                                setChildrenProfile({...childrenProfile, avatar : avatarBoy[0]}) }
+                                setDefaultAvatar(avatarBoy[0])}
                             }
+                            onChange={e => {
+                                setChildrenProfile({...childrenProfile, sex : e.target.value})}}
                         />
+
                         <SelectButton
                             radioSelBtnId='Fille'
                             radioSelBtnValue='girl'
                             radioSelBtnName='sex'
                             onClick={() => {
-                                setChildrenProfile({...childrenProfile, sex: 'girl' }) 
                                 setHasClickedOnSex(true)
                                 setDefaultAvatar(avatarGirl[0])
                                 setChildrenProfile({...childrenProfile, avatar : avatarGirl[0]}) }
                             }
+                            onChange={e => setChildrenProfile({...childrenProfile, sex : e.target.value})}                            
                         />
                     </div>
                     <label >
@@ -144,7 +143,7 @@ const ChildForm = () => {
                         placeholder=" Age de votre enfant"
                         value={childrenProfile.age}
                         onChange={(e) =>
-                        setChildrenProfile({ ...childrenProfile, age: Number(e.target.value) })
+                        setChildrenProfile({ ...childrenProfile, age: e.target.value })
                         }
                     />
                     </label>
@@ -183,4 +182,4 @@ const ChildForm = () => {
     )
 }
 
-export default ChildForm;
+export default NewChildForm;

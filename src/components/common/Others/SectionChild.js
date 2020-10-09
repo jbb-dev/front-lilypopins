@@ -25,9 +25,10 @@ const SectionChild = (props) => {
         <Collapse isOpen={isOpen}> 
 
             <div className='select_frequency'>
+
                 <RadioButton
                 radioButtonText="Maternelle"
-                radioButtonValue="maternelle"
+                radioButtonValue="Maternelle"
                 radioButtonName="section"
                 radioButtonId="maternelle"
                 onClick={props.onClick}
@@ -35,7 +36,7 @@ const SectionChild = (props) => {
 
                 <RadioButton
                 radioButtonText="Primaire"
-                radioButtonValue="primaire"
+                radioButtonValue="Primaire"
                 radioButtonName="section"
                 radioButtonId="primaire"
                 onClick={props.onClick}
@@ -43,11 +44,12 @@ const SectionChild = (props) => {
 
                 <RadioButton
                 radioButtonText="College"
-                radioButtonValue="college"
+                radioButtonValue="College"
                 radioButtonName="section"
                 radioButtonId="college"
                 onClick={props.onClick}
                 />
+
             </div>   
       </Collapse>     
 

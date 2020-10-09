@@ -14,16 +14,6 @@
     font-size: 0.9em ! important;
   }
   
-  .Profile-Page hr {
-    border-top: 1em thin;
-    width: 100%;
-  }
-  
-  .Profile-Page h4 {
-    font-size: 16px;
-    margin-bottom: 1em;
-  }
-
   .Profile-Page h5 {
     text-align: center;
   }
@@ -41,6 +31,7 @@
     display: flex;
     flex-direction: column;
     align-items: center;
+    width: 20em;
   }
 
   #avatar {
@@ -96,10 +87,10 @@
     display: none;  
   }
 
-  .availabilities {
+  .profile_availabilities {
     display: flex;
     flex-direction: column;
-    justify-content: flex-start;
+    margin: auto;
   }
 
   .profile_forms {
@@ -127,4 +118,8 @@
 
   .my-info {
     margin-top: 3em;
+  }
+
+  .day-available input {
+    width: 5em;
   }

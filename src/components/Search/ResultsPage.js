@@ -1,9 +1,8 @@
 import React, { useState, useEffect } from 'react'
-import { Link } from "react-router-dom";
 import Axios from 'axios'
 import ResultCard from './ResultCard'
 import Header from '../common/Header/Header'
-import './results.css'
+import './resultsPage.css'
 import Back from '../common/Buttons/Back'
 
 
@@ -13,10 +12,15 @@ const SearchResults = () => {
 
     const [searchResults, setSearchResults] = useState([])
   
+    // For authentification
+    const token = localStorage.token 
+
   
     const getUsers = () => {
       Axios
-      .get(`http://localhost:4000/api/users`)
+      .get(`http://localhost:4000/api/search`, { 
+        headers : { 'Authorization' : 'Bearer ' + token}
+        })
       .then(res => setSearchResults(res.data))
       .catch(err=> console.error(err))
     }
@@ -30,17 +34,16 @@ const SearchResults = () => {
       <>
         <Header className="header" title="Résultats de la recherche" />
         
-          <div className="Result-Page">
-          
-          <Back title='Précédent' link='/select' />
+          <div className="Results-Page">
+         
+              <Back title='Précédent' link='/search' />
         
-        {searchResults.map(e=> 
-          <ResultCard 
-            fullResult={e} 
-          />
+          {searchResults.map(e=> 
+            <ResultCard 
+              data={e} 
+            />
           )
         }
-  
         </div>
       </>
     );

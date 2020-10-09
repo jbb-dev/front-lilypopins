@@ -1,0 +1,28 @@
+.main-child-profile-form p {
+    margin-left : 0;
+}
+
+.main-child-profile-form input {
+    width : 19em;
+} 
+
+.child-profile-label {
+    text-align: center;
+    font-size: 0.9em ! important;
+}
+
+.child-information {
+    margin-left : 0.5em;
+}
+
+.child-biography {
+
+display: flex;
+flex-wrap: wrap;
+height: 12em;
+background: #b0b9d380;
+border: none;
+border-radius: 3px;
+width: 19em;
+
+}

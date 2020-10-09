@@ -1,7 +1,5 @@
 export const avatarGirl = [
     'https://i.pinimg.com/474x/fb/ea/14/fbea14eeb03180754b8228f9147b4b43.jpg',
-    'https://cdn.icon-icons.com/icons2/1736/PNG/512/4043251-avatar-female-girl-woman_113291.png',
-    'https://icon-icons.com/icons2/2438/PNG/256/girl_avatar_icon_148461.png',
     'https://www.clipartmax.com/png/middle/107-1070836_healthful-price-black-nike-kyrie-2-numerous-package-avatar-kids-girl.png',
     'https://st3.depositphotos.com/3369547/12873/v/950/depositphotos_128730124-stock-illustration-happy-girl-character-avatar.jpg',
     'https://i.pinimg.com/originals/3f/94/04/3f940463190184a893d1e207cee675d0.png',
@@ -11,8 +9,6 @@ export const avatarGirl = [
 ]
 
 export const avatarBoy = [
-    'https://cdn.icon-icons.com/icons2/2438/PNG/512/boy_avatar_icon_148454.png',
-    'https://cdn.icon-icons.com/icons2/2438/PNG/512/boy_avatar_icon_148455.png',
     'https://www.iconfinder.com/data/icons/children-avatar-flat/128/children_avatar-01-512.png',
     'https://www.immersa-lab.com/wp-content/uploads/2018/06/001-boy-3.png',
     'https://www.shareicon.net/data/2016/06/25/786541_people_512x512.png',

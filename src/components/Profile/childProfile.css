@@ -1,0 +1,11 @@
+.main-child-profile {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.child-info {
+    margin-top: 2em;
+}
+

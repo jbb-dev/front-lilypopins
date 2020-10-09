@@ -16,8 +16,6 @@ const MyChildren = () => {
     const [hasFinishedToGet, SetHasFinishedToGet] = useState(false)
     const token = localStorage.token 
 
-    const [addChild, setAddChild] = useState(false)
-
     const getMyChildren = () => {
         Axios.get('http://localhost:4000/api/users/my-children', { 
           headers : { 'Authorization' : 'Bearer ' + token}
@@ -30,7 +28,7 @@ const MyChildren = () => {
     // Start to catch children info and then, save it in the dataChildren
     useEffect(() => {
         getMyChildren()
-      }, []);
+      }, [dataChildren]);
 
     return(
         <>
@@ -57,17 +55,25 @@ const MyChildren = () => {
         : hasFinishedToGet === false ?
         
             <div>
-                <p style={{'text-align' : 'center'}}>Chargement en cours...</p>
+                <p style={{'textAlign' : 'center'}}>Chargement en cours...</p>
             </div>
 
         : dataChildren === null ?
             <div className="Profile-Page">
                 <Back title='Accueil' link='/home' />
                     
-                <ProfileSelect status={ {
-                    me : 'passive',
-                    children : 'active'}}
+                <ProfileSelect 
+                    title= {{
+                        option1 : 'Moi',
+                        option2 : 'Mes enfants' }}
+                    status={{
+                        option1 : 'passive',
+                        option2 : 'active' }}
+                    link = {{
+                        option1 : '/my-profile',
+                        option2 : '/my-children' }}
                 />
+
 
                 <AddChild onClick={event =>  window.location.href='/add-my-child'}/>
             </div>
@@ -76,13 +82,20 @@ const MyChildren = () => {
             <div className="Profile-Page">
                 <Back title='Accueil' link='/home' />
                     
-                <ProfileSelect status={ {
-                    me : 'passive',
-                    children : 'active'}}
+                <ProfileSelect 
+                    title= {{
+                        option1 : 'Moi',
+                        option2 : 'Mes enfants' }}
+                    status={{
+                        option1 : 'passive',
+                        option2 : 'active' }}
+                    link = {{
+                        option1 : '/my-profile',
+                        option2 : '/my-children' }}
                 />
 
                 {dataChildren.map(child => 
-                    <ChildCard data={child}/>)}
+                    <ChildCard data={child} key={child.firstname}/>)}
                 
 
                 <AddChild onClick={event =>  window.location.href='/add-my-child'}/>
