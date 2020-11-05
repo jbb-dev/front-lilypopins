@@ -8,9 +8,6 @@ const ContactParent = (props) => {
   // Firstname of parent to contact
   const firstname = props.firstname
 
-  // Message to send to the selected parent
-  const [message, setMessage] = useState('')
-
   // By default, modal is closed
   const [modal, setModal] = useState(false);
 
@@ -29,8 +26,8 @@ const ContactParent = (props) => {
             <textarea
                 type="text"
                 placeholder="Votre petit mot ici"
-                value={message}
-                onChange={(e) => setMessage(e.target.value)}
+                value={props.text}
+                onChange={props.messageToSend}
             />
             </label>
           </form>
@@ -39,7 +36,6 @@ const ContactParent = (props) => {
           <Button id='contact-parent-send-message' 
             onClick={() => {
                 toggle()
-                // {props.sendEmail()}
                 {props.createNewDemand()}
             }}>
             Envoyer votre demande

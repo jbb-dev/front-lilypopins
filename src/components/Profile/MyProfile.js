@@ -4,7 +4,7 @@ import Header from "../common/Header/Header"
 import { storage } from "../../Firebase"
 import Axios from "axios";
 import { Link } from "react-router-dom";
-import Back from '../common/Buttons/Back'
+import BackHome from '../common/Buttons/BackHome'
 import Next from '../common/Buttons/Next'
 import ProfileSelect from '../common/Others/ProfileSelect'
 
@@ -108,7 +108,7 @@ const MyProfile = () => {
 
       :
       <div className="Profile-Page">
-          <Back title='Accueil' link='/home' />
+          <BackHome />
 
           <ProfileSelect 
             title= {{

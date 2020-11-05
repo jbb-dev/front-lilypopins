@@ -13,6 +13,9 @@ import MyChildren from './components/Profile/MyChildren'
 import NewChildForm from './components/Profile/NewChildForm'
 import ChildProfile from './components/Profile/ChildProfile'
 import FollowUp from './components/Suivi/FollowUp'
+import MyBabbySitting from './components/Suivi/MyBabbySittings'
+import DemandDetail from './components/Suivi/DemandDetail'
+import Conversation from './components/common/MailBox/Conversation'
 
 import { UserContext } from './context/UserContext'
 import { userProfileContext } from './context/UserContext'
@@ -21,6 +24,7 @@ import { childrenProfileContext } from './context/ChildrenContext'
 import { SearchContext } from './context/SearchContext'
 import { userSearchContext } from './context/SearchContext'
 
+import Apimo from './components/Apimo'
 
 const Router = () => {
 
@@ -37,11 +41,15 @@ const Router = () => {
     return (
         <>
             <Switch>
-                <Route exact path="/login" component={Login} />
+                <Route exact path="/" component={Login} />
                 <Route exact path="/home" component={Home} />
                 <Route exact path="/my-profile" component={MyProfile} />
                 <Route exact path="/my-children/:childId" component={ChildProfile} />
-                <Route exact path="/follow-up" component={FollowUp} />
+                <Route exact path="/my-demands" component={FollowUp} />
+                <Route exact path="/my-kidsitting" component={MyBabbySitting} />
+                <Route exact path="/my-demands/parent/:id" component={DemandDetail} />
+                <Route exact path="/my-demands/parent/conversation/:id" component={Conversation} />
+                <Route exact path='/apimo' component={Apimo} />
                 <UserContext.Provider value={providerUserProfile}>
                     <Route exact path="/register" component={Register} />
                     <Route exact path="/register-step2" component={RegisterStep2} />

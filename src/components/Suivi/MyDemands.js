@@ -1,34 +1,36 @@
 
-import React, {useState} from 'react'
-import './myDemands.css'
-import { Button } from 'reactstrap';
-import CancelDemandModal from '../common/Modals/CancelDemandModal';
-
+import React, {useState, useEffect} from 'react'
+import Axios from 'axios';
+import DemandCard from './DemandCard'
 
 const MyDemands = () => {
 
-    // By default the demande is not canceled
-    const [hasCanceled, setHasCanceled] = useState(false)
+    const token = localStorage.token
+
+    const [myDemands, setMyDemands] = useState([])
+    
+    const getMyDemands = () => {
+        Axios
+        .get('http://localhost:4000/api/demands/my-demands', { 
+            headers : { 'Authorization' : 'Bearer ' + token}
+          })
+        .then(response => setMyDemands(response.data))
+        .catch(err => console.log(err))
+    }
+
+    useEffect(() => {
+        getMyDemands()
+      }, []);
 
     return (
             <>
-                <div className="card" style={{'width': '20em'}}>
-                    <div className="card-body">
-                        <div >
-                            <h5 className="card-title" style={{'text-align': 'left'}}>Demande pour le #DateGarde</h5>
-                            <p>Envoyé à : #NomduParentContacté</p>
-                            <p>Status : en attente de réponse</p>
-                        </div>
-                        <p className="card-text" style={{'text-align': 'justify'}}>Vous avez envoyé une demande à #NomParentContacté pour faire garder #NomEnfant le #Jour entre #DebutGarde et #FinGarde</p>
-                        <div className='button-delete-demand'>
-                            <Button color="danger" onClick={() => setHasCanceled(!hasCanceled)}>Annuler la demande</Button>
-                        </div>
-                    </div>
-                </div>
-                {hasCanceled ? 
-                    <CancelDemandModal />
-                : null
-                }
+            { myDemands.length !== 0 ?
+                myDemands.map(demand => (
+                    <DemandCard contactedParent={demand.Users[0].firstname} status={demand.status} date={demand.beginAt} avatar={demand.Users[0].avatar} isMyDemand={true} userId={demand.Users[0].id} />
+                ))
+            : 
+                <p style={{'text-align': 'center'}}>Vous n'avez pas encore fait de demande de garde pour l'instant.</p>
+            }
             </>
             )
 }

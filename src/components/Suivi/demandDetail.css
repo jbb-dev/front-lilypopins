@@ -1,0 +1,40 @@
+
+.top-demand-detail{
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-end;
+    margin-left: 2em;
+    margin-right: 2em;
+    margin-bottom: 2em;
+    margin-top : -1em;
+}
+
+.biography {
+    font-style: italic;
+    text-align: center;
+    padding: 1em;
+}
+
+.parent-availabilities {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin-bottom: 1em;
+}
+
+.parent-children {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin-bottom: 1em;
+}
+
+#avatar-large {
+    width: 9em;
+    border-radius: 50%;
+    height: 9em;
+    margin-bottom: 1em;
+}
+#enveloppe:hover {
+    color: #ff3dc2bb;
+}

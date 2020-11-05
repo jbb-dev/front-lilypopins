@@ -3,9 +3,8 @@
 
   .mainLogin {
     display: flex;
-    align-items: center;
-    flex-flow: column nowrap;
-    background-image: url('https://resize-elle.ladmedia.fr/rcrop/1098,768/img/var/plain_site/storage/images/love-sexe/psycho/interpretation-des-reves/sommeil-pourquoi-reve-t-on-davantage-pendant-le-confinement-et-pourquoi-il-ne-faut-pas-s-inquieter-3862800/93128225-1-fre-FR/Sommeil-pourquoi-reve-t-on-davantage-pendant-le-confinement-et-pourquoi-il-ne-faut-pas-s-inquieter.jpg');
+    flex-direction: column;
+    background-image: url('https://atelier-de-jb.fr/wp-content/uploads/2020/11/pier-569314_1920.jpg');
   }
   
   .login_page {
@@ -16,15 +15,6 @@
     text-align: center;
   }
 
-  .brandTitle h3 {
-    color: black;
-    font-size: 2em;
-    margin-top: 1.4em;
-  }
-
-  .login_forms {
-    padding: 0.2em;
-  }
   .login_forms input {
     background: #b0b9d380;
     border: none;
@@ -53,11 +43,6 @@
     background-repeat: no-repeat;
     background-size: 1.4em;
     background-position: right;
-  }
-
-  .login_go_back {
-    color: #893cc1;
-    font-weight: 1em;
   }
 
   .create_account {

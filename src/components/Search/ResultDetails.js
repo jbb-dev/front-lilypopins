@@ -29,6 +29,9 @@ const ResultDetails = (props) => {
     // Information about the selected parent
     const [dataUser, setDataUser] = useState(null)
     
+    // Message to send to the selected parent
+    const [message, setMessage] = useState('')
+
     // For toggles
     const toggleOne = () => setIsOpenOne(!isOpenOne);
     const [isOpenOne, setIsOpenOne] = useState(false)
@@ -54,18 +57,10 @@ const ResultDetails = (props) => {
           
     }
 
-    // Send email message to the contacted parent
-    const sendEmail = () => {
-        Axios
-        .get(`http://localhost:4000/api/users/messages`)
-        .then(setHasSentMessage(!hasSentMessage))
-        .catch(err=> setErrorMessage(err.response.data.error))
-    }
-
     // Create a new demand in database
     const createNewDemand = () => {
         Axios
-        .post('http://localhost:4000/api/demands/create-new-demand', [userId, beginAt, endAt] ,
+        .post('http://localhost:4000/api/demands/create-new-demand', [userId, beginAt, endAt, message] ,
             { headers : { 'Authorization' : 'Bearer ' + token}})
         .catch(err=> setErrorMessage(err.response.data.error))
         .finally(setHasSentMessage(!hasSentMessage))
@@ -140,7 +135,8 @@ const ResultDetails = (props) => {
                         firstname={dataUser.firstname} 
                         contactedParentId={userId} 
                         createNewDemand={createNewDemand} 
-                        sendEmail={sendEmail}
+                        messageToSend={e => setMessage(e.target.value)}
+                        text={message}
                     />
                 </div>
 

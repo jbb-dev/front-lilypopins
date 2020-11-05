@@ -10,6 +10,7 @@ table {
 
 td {
     width: 8em;
+    cursor: grab;
 }
 
 .active {

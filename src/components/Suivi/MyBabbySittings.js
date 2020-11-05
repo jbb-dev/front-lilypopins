@@ -1,19 +1,34 @@
-import React, { useState } from 'react'
+
+import React, {useState, useEffect} from 'react'
 import { Link } from "react-router-dom";
+import Axios from 'axios';
 import Header from "../common/Header/Header"
 import BackHome from '../common/Buttons/BackHome'
 import ProfileSelect from '../common/Others/ProfileSelect'
-import './followUp.css'
-import MyDemands from './MyDemands';
 
+import DemandCard from './DemandCard'
 
-const FollowUp = () => {
+const MyBabbySittings = () => {
 
-    // verify if user
-    const token = localStorage.token 
+    const token = localStorage.token
 
-    return(
-        <>
+    const [myBabbySittings, setMyBabbySittings] = useState([])
+    
+    const getMyBabbySittings = () => {
+        Axios
+        .get('http://localhost:4000/api/demands/kidsitting/all', { 
+            headers : { 'Authorization' : 'Bearer ' + token}
+          })
+        .then(response => setMyBabbySittings(response.data))
+        .catch(err => console.log(err))
+    }
+
+    useEffect(() => {
+        getMyBabbySittings()
+      }, []);
+
+    return (
+            <>
 
             <Header className="header" title="Suivi des gardes" />
 
@@ -42,25 +57,24 @@ const FollowUp = () => {
                             option1 : 'Mes demandes',
                             option2 : 'Mes gardes à faire' }}
                         status={{
-                            option1 : 'active',
-                            option2 : 'passive' }}
+                            option1 : 'passive',
+                            option2 : 'active' }}
                         link = {{
                             option1 : '/my-demands',
                             option2 : '/my-kidsitting' 
                                 }}
                     />
-                    
-                    <MyDemands />
-
+                    { myBabbySittings.length !== 0 ?
+                        myBabbySittings.map(demand => (
+                            <DemandCard contactedParent={demand.Users[0].firstname} status={demand.status} date={demand.beginAt} avatar={demand.Users[0].avatar} userId={demand.Users[0].id} isMyDemand={false} />
+                        ))
+                    : 
+                        <p style={{'text-align': 'center'}}>Vous n'avez pas reçu de demande de garde pour l'instant.</p>
+                    }
                 </div> 
-
             }
-
-        
         </>
     )
-
 }
 
-
-export default FollowUp;
+export default MyBabbySittings;

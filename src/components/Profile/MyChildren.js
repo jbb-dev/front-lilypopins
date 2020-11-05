@@ -2,7 +2,7 @@ import React, { useState, useEffect } from 'react'
 import { Link } from "react-router-dom";
 import Header from '../common/Header/Header'
 import Axios from 'axios'
-import Back from '../common/Buttons/Back'
+import BackHome from '../common/Buttons/BackHome'
 import ProfileSelect from '../common/Others/ProfileSelect'
 import AddChild from '../common/Others/AddChild'
 import './myChildren.css'
@@ -60,7 +60,7 @@ const MyChildren = () => {
 
         : dataChildren === null ?
             <div className="Profile-Page">
-                <Back title='Accueil' link='/home' />
+                <BackHome />
                     
                 <ProfileSelect 
                     title= {{
@@ -80,7 +80,7 @@ const MyChildren = () => {
 
         : 
             <div className="Profile-Page">
-                <Back title='Accueil' link='/home' />
+                <BackHome />
                     
                 <ProfileSelect 
                     title= {{

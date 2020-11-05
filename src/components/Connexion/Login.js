@@ -37,10 +37,6 @@ const Login = () => {
 
             <Header title='Connexion' />
 
-            <div className='brandTitle'>
-                <h3>Lily'Poppins</h3>
-            </div>
-
             {error !== null ? <div class="alert alert-danger" role="alert">{error}</div> : null}
 
             <div className="login_page">
@@ -72,10 +68,13 @@ const Login = () => {
                     />
                     </label>
                 </form>
+                
                 { dataUser.email && dataUser.password !== '' ? 
-                <Next title='Se connecter' onClick={() => login()} status='active'/>
-                : <Next title='Se connecter' status='passive'/>
+                    <Next title='Se connecter' onClick={() => login()} status='active'/>
+                : 
+                    <Next title='Se connecter' status='passive'/>
                 }
+                
                 <div className='create_account'>
                     <p>Pas de compte ? </p>
                     <Link to="/register" style={{ textDecoration: "none" }}>

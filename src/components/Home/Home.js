@@ -43,7 +43,7 @@ const Home = () => {
                 </div>
             </Link>
             
-            <Link to="/follow-up" style={{ textDecoration: "none" }}>
+            <Link to="/my-demands" style={{ textDecoration: "none" }}>
                 <div className='homeBtn' >
                     <i className="fas fa-eye"></i>
                     <p className='textBtn'> Mon suivi des gardes </p>
