@@ -3,10 +3,17 @@
 
   .mainRegister {
     display: flex;
+    flex-direction: column;
+    justify-content: center;
     align-items: center;
-    flex-flow: column nowrap;
   }
   
+  .register_page{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+
   .welcome {
     font-size: 1.2em;
     margin-bottom: 1em;
@@ -35,17 +42,6 @@
 
   .day {
     width: 5em;
-  }
-
-  #avatar {
-    border-radius: 50%;
-    width: 40%;
-    height: auto;
-    margin-bottom : 1em;
-  }
-
-  #upload-avatar{
-    margin: 0em 0em 1em 0em;
   }
 
   .register_page {

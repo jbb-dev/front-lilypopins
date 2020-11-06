@@ -34,8 +34,8 @@
 
   #avatar {
     border-radius: 50%;
-    width: 40%;
-    height: auto;
+    width: 9em;
+    height: 9em;
   }
   
   .Profile-button {

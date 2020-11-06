@@ -12,10 +12,11 @@ const RegisterStep2 = () => {
 
     
     return(
+      <>
+        <Header title='Inscription- étape 2/3' />
 
         <div className='mainRegister'>
 
-        <Header title='Inscription- étape 2/3' />
 
         <h3 className='welcome'>Présentez-vous</h3>
 
@@ -125,6 +126,7 @@ const RegisterStep2 = () => {
           </Link>
         </div>
       </div>
+    </>
       )
 }
 

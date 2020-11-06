@@ -2,8 +2,9 @@ import React, {useState} from 'react'
 import { Link, Redirect } from "react-router-dom";
 import './login.css'
 import Next from '../common/Buttons/Next'
-import Header from '../common/Header/Header'
 import Axios from 'axios'
+import logo from "../../components/common/Logo/logo.png"
+
 const { REACT_APP_API_URL } = process.env;
 
 
@@ -36,11 +37,12 @@ const Login = () => {
 
         <div className='mainLogin'>
 
-            <Header title='Connexion' />
-
             {error !== null ? <div class="alert alert-danger" role="alert">{error}</div> : null}
 
             <div className="login_page">
+
+                <img className="login_logo" src={logo} alt="logo" />
+                
                 <form className="login_forms">
                     <label>
                     <input
@@ -82,7 +84,6 @@ const Login = () => {
                         <p className="login_low_text">S'inscrire gratuitement</p>
                     </Link>
                 </div>
-
             </div>
       </div>
     </>
