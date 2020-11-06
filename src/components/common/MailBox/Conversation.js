@@ -3,7 +3,7 @@ import Axios from "axios";
 import Header from '../Header/Header'
 import Back from '../Buttons/Back'
 import './conversation.css'
-
+const { REACT_APP_API_URL } = process.env;
 
 const Conversation = (props) => {
 
@@ -15,7 +15,7 @@ const Conversation = (props) => {
 
     // get all conversations between current user and the other one
     const getConversations = () => {
-        Axios.get(`http://localhost:4000/api/conversations/${conversationId}`, { 
+        Axios.get(`${REACT_APP_API_URL}/api/conversations/${conversationId}`, { 
             headers : { 'Authorization' : 'Bearer ' + token}
           })
           .then((res) => setConversation(res.data))

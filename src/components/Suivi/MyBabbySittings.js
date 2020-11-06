@@ -5,8 +5,8 @@ import Axios from 'axios';
 import Header from "../common/Header/Header"
 import BackHome from '../common/Buttons/BackHome'
 import ProfileSelect from '../common/Others/ProfileSelect'
-
 import DemandCard from './DemandCard'
+const { REACT_APP_API_URL } = process.env;
 
 const MyBabbySittings = () => {
 
@@ -16,7 +16,7 @@ const MyBabbySittings = () => {
     
     const getMyBabbySittings = () => {
         Axios
-        .get('http://localhost:4000/api/demands/kidsitting/all', { 
+        .get(`${REACT_APP_API_URL}/api/demands/kidsitting/all`, { 
             headers : { 'Authorization' : 'Bearer ' + token}
           })
         .then(response => setMyBabbySittings(response.data))

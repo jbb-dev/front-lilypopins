@@ -4,6 +4,7 @@ import './login.css'
 import Next from '../common/Buttons/Next'
 import Header from '../common/Header/Header'
 import Axios from 'axios'
+const { REACT_APP_API_URL } = process.env;
 
 
 const Login = () => {
@@ -20,7 +21,7 @@ const Login = () => {
 
     const login = () => {
         Axios
-        .post("http://localhost:4000/api/users/login", dataUser)
+        .post(`${REACT_APP_API_URL}/api/users/login`, dataUser)
         .then((res) => {
             localStorage.setItem("token", res.data.token)
             setLogged(true)

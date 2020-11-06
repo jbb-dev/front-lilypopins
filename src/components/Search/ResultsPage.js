@@ -4,6 +4,7 @@ import ResultCard from './ResultCard'
 import Header from '../common/Header/Header'
 import './resultsPage.css'
 import Back from '../common/Buttons/Back'
+const { REACT_APP_API_URL } = process.env;
 
 
 
@@ -18,7 +19,7 @@ const SearchResults = () => {
   
     const getUsers = () => {
       Axios
-      .get(`http://localhost:4000/api/search`, { 
+      .get(`${REACT_APP_API_URL}/api/search`, { 
         headers : { 'Authorization' : 'Bearer ' + token}
         })
       .then(res => setSearchResults(res.data))

@@ -6,6 +6,7 @@ import SelectButton from '../../common/Buttons/SelectButton'
 import SectionChild from '../../common/Others/SectionChild'
 import Validate from '../Buttons/Validate'
 import './childProfileForm.css'
+const { REACT_APP_API_URL } = process.env;
 
 const ChildProfileForm = (props) => {
 
@@ -43,7 +44,7 @@ const ChildProfileForm = (props) => {
     // Update child data in bdd 
     const updateMyChildProfile = () => {
         Axios
-        .put(`http://localhost:4000/api/users/my-children/${dataChild.id}`, dataChild, 
+        .put(`${REACT_APP_API_URL}/api/users/my-children/${dataChild.id}`, dataChild, 
             { 
             headers : { 'Authorization' : 'Bearer ' + token}
             })

@@ -6,6 +6,7 @@ import Header from '../common/Header/Header'
 import Back from '../common/Buttons/Back'
 import Next from '../common/Buttons/Next'
 import ChildProfileForm from '../common/Others/ChildProfileForm'
+const { REACT_APP_API_URL } = process.env;
 
 
 const ChildProfile = (props) => {
@@ -23,7 +24,7 @@ const ChildProfile = (props) => {
     const [wantModifProfile, setWantModifProfile] = useState(false)
 
     const getMyChildInfo = () => {
-        Axios.get(`http://localhost:4000/api/users/my-children/${childId}`, { 
+        Axios.get(`${REACT_APP_API_URL}/api/users/my-children/${childId}`, { 
           headers : { 'Authorization' : 'Bearer ' + token}
         })
         .then((res) => setDataChild(res.data))

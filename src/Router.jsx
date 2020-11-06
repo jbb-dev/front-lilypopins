@@ -24,8 +24,6 @@ import { childrenProfileContext } from './context/ChildrenContext'
 import { SearchContext } from './context/SearchContext'
 import { userSearchContext } from './context/SearchContext'
 
-import Apimo from './components/Apimo'
-
 const Router = () => {
 
     //Appel des différents contexts qui vont partager ensuite l'information entre les composants concernés
@@ -49,7 +47,6 @@ const Router = () => {
                 <Route exact path="/my-kidsitting" component={MyBabbySitting} />
                 <Route exact path="/my-demands/parent/:id" component={DemandDetail} />
                 <Route exact path="/my-demands/parent/conversation/:id" component={Conversation} />
-                <Route exact path='/apimo' component={Apimo} />
                 <UserContext.Provider value={providerUserProfile}>
                     <Route exact path="/register" component={Register} />
                     <Route exact path="/register-step2" component={RegisterStep2} />

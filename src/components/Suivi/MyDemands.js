@@ -2,6 +2,7 @@
 import React, {useState, useEffect} from 'react'
 import Axios from 'axios';
 import DemandCard from './DemandCard'
+const { REACT_APP_API_URL } = process.env;
 
 const MyDemands = () => {
 
@@ -11,7 +12,7 @@ const MyDemands = () => {
     
     const getMyDemands = () => {
         Axios
-        .get('http://localhost:4000/api/demands/my-demands', { 
+        .get(`${REACT_APP_API_URL}/api/demands/my-demands`, { 
             headers : { 'Authorization' : 'Bearer ' + token}
           })
         .then(response => setMyDemands(response.data))

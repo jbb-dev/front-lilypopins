@@ -7,6 +7,7 @@ import Back from '../common/Buttons/Back'
 import ChildCardInResultDetail from '../Search/ChildCardInResultDetail'
 import ContactParentModal from '../common/Modals/ContactParentModal'
 import { SearchContext } from '../../context/SearchContext';
+const { REACT_APP_API_URL } = process.env;
 
 
 const ResultDetails = (props) => {
@@ -49,7 +50,7 @@ const ResultDetails = (props) => {
     // Get information about the selected parent from its ID
     const getParentInformation = () => {
         Axios
-        .get(`http://localhost:4000/api/search/${userId}`, { 
+        .get(`${REACT_APP_API_URL}/api/search/${userId}`, { 
             headers : { 'Authorization' : 'Bearer ' + token}
             })
         .then(res => setDataUser(res.data))
@@ -60,7 +61,7 @@ const ResultDetails = (props) => {
     // Create a new demand in database
     const createNewDemand = () => {
         Axios
-        .post('http://localhost:4000/api/demands/create-new-demand', [userId, beginAt, endAt, message] ,
+        .post(`${REACT_APP_API_URL}/api/demands/create-new-demand`, [userId, beginAt, endAt, message] ,
             { headers : { 'Authorization' : 'Bearer ' + token}})
         .catch(err=> setErrorMessage(err.response.data.error))
         .finally(setHasSentMessage(!hasSentMessage))

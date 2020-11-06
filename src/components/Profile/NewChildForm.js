@@ -10,6 +10,7 @@ import { ChildrenContext } from '../../context/ChildrenContext'
 import Axios from 'axios'
 import { avatarGirl } from '../common/Others/avatar'
 import { avatarBoy } from '../common/Others/avatar'
+const { REACT_APP_API_URL } = process.env;
 
 
 
@@ -28,7 +29,7 @@ const NewChildForm = () => {
     const token = localStorage.token 
     const addChild = () => {
         Axios
-            .post('http://localhost:4000/api/users/add-a-child', childrenProfile,
+            .post(`${REACT_APP_API_URL}/api/users/add-a-child`, childrenProfile,
                 { headers : { 'Authorization' : 'Bearer ' + token}})
             .then(setHasFinished(true))
             .catch(err=> setError(err))

@@ -10,6 +10,7 @@
     "axios": "^0.19.2",
     "bootstrap": "^4.5.2",
     "date-fns": "^2.16.1",
+    "dotenv": "^8.2.0",
     "emailjs-com": "^2.6.3",
     "firebase": "^7.19.1",
     "react": "^16.13.1",
@@ -19,6 +20,9 @@
     "react-router-dom": "^5.2.0",
     "react-scripts": "3.4.1",
     "reactstrap": "^8.5.1"
+  },
+  "engines": {
+    "node": "13.12"
   },
   "scripts": {
     "start": "react-scripts start",

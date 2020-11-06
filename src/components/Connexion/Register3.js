@@ -7,6 +7,7 @@ import Header from '../common/Header/Header'
 import Axios from 'axios'
 import { UserContext } from '../../context/UserContext'
 import ButtonValidate from '../common/Buttons/Validate'
+const { REACT_APP_API_URL } = process.env;
 
 const RegisterStep3 = () => {
 
@@ -16,7 +17,7 @@ const RegisterStep3 = () => {
 
     const subscribe = () => {
       Axios
-        .post("http://localhost:4000/api/users/register", userProfile)
+        .post(`${REACT_APP_API_URL}/api/users/register`, userProfile)
         .then(setHasFinished(true))
         .catch((err) => console.error(err))
     }

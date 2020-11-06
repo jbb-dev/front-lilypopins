@@ -6,6 +6,7 @@ import Back from '../common/Buttons/Back'
 import ChildCardInResultDetail from '../Search/ChildCardInResultDetail'
 import './demandDetail.css'
 import { Collapse, Button} from 'reactstrap'
+const { REACT_APP_API_URL } = process.env;
 
 
 const DemandDetail = (props) => {
@@ -44,7 +45,7 @@ const DemandDetail = (props) => {
     // Get information about the selected parent from its ID
     const getParentInformation = () => {
         Axios
-        .get(`http://localhost:4000/api/search/${userId}`, { 
+        .get(`${REACT_APP_API_URL}/api/search/${userId}`, { 
             headers : { 'Authorization' : 'Bearer ' + token}
             })
         .then(res => setDataUser(res.data))
@@ -53,7 +54,7 @@ const DemandDetail = (props) => {
 
     // const getConversationId = () => {
     //     Axios
-    //     .get(`http://localhost:4000/api/conversations/user/${userId}`, { 
+    //     .get(`${REACT_APP_API_URL}/api/conversations/user/${userId}`, { 
     //         headers : { 'Authorization' : 'Bearer ' + token}
     //         })
     //     .then(res => setIdConversation(res.data))

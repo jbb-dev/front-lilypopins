@@ -5,6 +5,7 @@ import './home.css'
 import Header from '../common/Header/Header'
 import Footer from '../common/Footer/Footer'
 import Notification from '../common/Others/Notification'
+const { REACT_APP_API_URL } = process.env;
 
 const Home = () => {
 
@@ -14,7 +15,7 @@ const Home = () => {
     const [dataUser, setDataUser] = useState(null) 
     const getMyProfile = () => {
         Axios
-        .get('http://localhost:4000/api/users/my-profile', { 
+        .get(`${REACT_APP_API_URL}/api/users/my-profile`, { 
             headers : { 'Authorization' : 'Bearer ' + token}
             })
         .then((res) => setDataUser(res.data))

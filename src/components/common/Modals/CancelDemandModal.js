@@ -2,6 +2,7 @@ import Axios from 'axios';
 import React, { useState } from 'react';
 import { Button, Modal, ModalHeader, ModalBody, ModalFooter } from 'reactstrap';
 import './contactParentModal.css';
+const { REACT_APP_API_URL } = process.env;
 
 const CancelDemandModal = (props) => {
 
@@ -23,7 +24,7 @@ const CancelDemandModal = (props) => {
   // Send email message to the contacted parent
   const sendEmail = () => {
     Axios
-    .get(`http://localhost:4000/api/users/messages`)
+    .get(`${REACT_APP_API_URL}/api/users/messages`)
     .then(setHasSentMessage(!hasSentMessage))
     .catch(err=> console.error(err))
   }

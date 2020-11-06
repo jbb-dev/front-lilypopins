@@ -7,6 +7,7 @@ import { Link } from "react-router-dom";
 import BackHome from '../common/Buttons/BackHome'
 import Next from '../common/Buttons/Next'
 import ProfileSelect from '../common/Others/ProfileSelect'
+const { REACT_APP_API_URL } = process.env;
 
 
 const MyProfile = () => {
@@ -19,7 +20,7 @@ const MyProfile = () => {
     
   // Get user profil
   const getMyProfile = () => {
-    Axios.get('http://localhost:4000/api/users/my-profile', { 
+    Axios.get(`${REACT_APP_API_URL}/api/users/my-profile`, { 
       headers : { 'Authorization' : 'Bearer ' + token}
     })
     .then((res) => setDataUser(res.data))
@@ -28,7 +29,7 @@ const MyProfile = () => {
   // Update user data information 
   const updateMyProfile = () => {
     Axios
-    .put('http://localhost:4000/api/users/my-profile', dataUser, 
+    .put(`${REACT_APP_API_URL}/api/users/my-profile`, dataUser, 
     { 
       headers : { 'Authorization' : 'Bearer ' + token}
     })

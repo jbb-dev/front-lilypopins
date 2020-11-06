@@ -7,6 +7,7 @@ import ProfileSelect from '../common/Others/ProfileSelect'
 import AddChild from '../common/Others/AddChild'
 import './myChildren.css'
 import ChildCard from './ChildCard';
+const { REACT_APP_API_URL } = process.env;
 
 
 const MyChildren = () => {
@@ -17,7 +18,7 @@ const MyChildren = () => {
     const token = localStorage.token 
 
     const getMyChildren = () => {
-        Axios.get('http://localhost:4000/api/users/my-children', { 
+        Axios.get(`${REACT_APP_API_URL}/api/users/my-children`, { 
           headers : { 'Authorization' : 'Bearer ' + token}
         })
         .then((res) => setDataChildren(res.data))
