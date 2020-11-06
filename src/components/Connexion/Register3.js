@@ -26,7 +26,7 @@ const RegisterStep3 = () => {
     return(
       <>
 
-        {hasFinished ? <Redirect to="/login" /> : null}
+        {hasFinished ? <Redirect to="/" /> : null}
 
         <div className='mainRegister'>
 

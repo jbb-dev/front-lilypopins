@@ -29,7 +29,7 @@ const MyChildren = () => {
     // Start to catch children info and then, save it in the dataChildren
     useEffect(() => {
         getMyChildren()
-      }, [dataChildren]);
+      }, []);
 
     return(
         <>
