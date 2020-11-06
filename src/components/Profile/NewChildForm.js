@@ -66,7 +66,7 @@ const NewChildForm = () => {
     return (
         <>
 
-        {hasFinished ? <Redirect to="/my-children" /> : null}
+        {hasFinished ? window.location.href='/add-my-child' : null}
 
         <Header className="header" title="Ajouter mon enfant" />
 

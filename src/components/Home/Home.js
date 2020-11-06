@@ -51,7 +51,7 @@ const Home = () => {
                 </div>
             </Link>
 
-            <Link to="/" style={{ textDecoration: "none" }}>
+            <Link to="/home" style={{ textDecoration: "none" }}>
                 <div className='homeBtn' >
                     <i className="far fa-calendar-alt"></i>
                     <p className='textBtn'> Mon calendrier partagé </p>
@@ -67,7 +67,7 @@ const Home = () => {
 
 
             <div>
-                <Link to="/login" style={{ textDecoration: "none" }}>
+                <Link to="/" style={{ textDecoration: "none" }}>
                     <p className="logout">Se déconnecter</p>
                 </Link>
              </div>
