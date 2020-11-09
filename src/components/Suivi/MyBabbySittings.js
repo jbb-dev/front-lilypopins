@@ -49,28 +49,31 @@ const MyBabbySittings = () => {
                 </div>
       
             :
-                <div className='FollowUp-Page'>
+                <div>
                     <BackHome />
 
-                    <ProfileSelect 
-                        title= {{
-                            option1 : 'Mes demandes',
-                            option2 : 'Mes gardes à faire' }}
-                        status={{
-                            option1 : 'passive',
-                            option2 : 'active' }}
-                        link = {{
-                            option1 : '/my-demands',
-                            option2 : '/my-kidsitting' 
-                                }}
-                    />
-                    { myBabbySittings.length !== 0 ?
-                        myBabbySittings.map(demand => (
-                            <DemandCard contactedParent={demand.Users[0].firstname} status={demand.status} date={demand.beginAt} avatar={demand.Users[0].avatar} userId={demand.Users[0].id} isMyDemand={false} />
-                        ))
-                    : 
-                        <p style={{'text-align': 'center'}}>Vous n'avez pas reçu de demande de garde pour l'instant.</p>
-                    }
+                    <div className='FollowUp-Page'>
+
+                        <ProfileSelect 
+                            title= {{
+                                option1 : 'Mes demandes',
+                                option2 : 'Mes gardes à faire' }}
+                            status={{
+                                option1 : 'passive',
+                                option2 : 'active' }}
+                            link = {{
+                                option1 : '/my-demands',
+                                option2 : '/my-kidsitting' 
+                                    }}
+                        />
+                        { myBabbySittings.length !== 0 ?
+                            myBabbySittings.map(demand => (
+                                <DemandCard contactedParent={demand.Users[0].firstname} status={demand.status} date={demand.beginAt} avatar={demand.Users[0].avatar} userId={demand.Users[0].id} isMyDemand={false} />
+                            ))
+                        : 
+                            <p style={{'text-align': 'center'}}>Vous n'avez pas reçu de demande de garde pour l'instant.</p>
+                        }
+                    </div>
                 </div> 
             }
         </>
