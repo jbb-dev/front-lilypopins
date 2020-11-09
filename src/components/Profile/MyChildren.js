@@ -80,8 +80,11 @@ const MyChildren = () => {
             </div>
 
         : 
+        <div>
+
+            <BackHome />
+
             <div className="Profile-Page">
-                <BackHome />
                     
                 <ProfileSelect 
                     title= {{
@@ -102,6 +105,7 @@ const MyChildren = () => {
                 <AddChild onClick={event =>  window.location.href='/add-my-child'}/>
 
             </div>
+        </div>
         }
     </>
     )

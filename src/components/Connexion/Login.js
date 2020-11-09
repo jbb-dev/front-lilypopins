@@ -37,12 +37,13 @@ const Login = () => {
 
         <div className='mainLogin'>
 
-            {error !== null ? <div class="alert alert-danger" role="alert">{error}</div> : null}
 
             <div className="login_page">
 
                 <img className="login_logo" src={logo} alt="logo" />
-                
+
+                {error !== null ? <div class="alert alert-danger" role="alert">{error}</div> : null}
+
                 <form className="login_forms">
                     <label>
                     <input
@@ -79,7 +80,7 @@ const Login = () => {
                 }
                 
                 <div className='create_account'>
-                    <p>Pas de compte ? </p>
+                    <p className='no-account'>Pas de compte ? </p>
                     <Link to="/register" style={{ textDecoration: "none" }}>
                         <p className="login_low_text">S'inscrire gratuitement</p>
                     </Link>

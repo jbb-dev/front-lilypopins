@@ -36,7 +36,7 @@ const Search = () => {
     return (
         <>
             <Header title='Faire garder mon enfant'/>
-                <div className='button-back'>
+                <div>
                     <Back title='Accueil' link='/home' />
                 </div>
                 <div className="select-page">

@@ -52,19 +52,9 @@ const DemandDetail = (props) => {
         .catch(err=> console.log(err.response.data.error))        
     }
 
-    // const getConversationId = () => {
-    //     Axios
-    //     .get(`${REACT_APP_API_URL}/api/conversations/user/${userId}`, { 
-    //         headers : { 'Authorization' : 'Bearer ' + token}
-    //         })
-    //     .then(res => setIdConversation(res.data))
-    //     .catch(err=> console.log(err.response.data.error))        
-
-    // }
     
     useEffect(() => {
         getParentInformation()
-        // getConversationId()
     }, [])
 
     return (

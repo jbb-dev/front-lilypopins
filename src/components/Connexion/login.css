@@ -9,6 +9,7 @@
     display: flex;
     flex-direction: column;
     justify-content: center;
+    text-align: center;
   }
   
   .login_page {
@@ -59,4 +60,8 @@
 
   .create_account {
     margin-top : 2em;
+  }
+
+  .no-account {
+    font-weight: 400;
   }

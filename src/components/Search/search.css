@@ -1,12 +1,9 @@
-.button-back {
-    margin-left: 2em;
-}
 
 .select-page {
         display: flex;
         flex-flow: column wrap;
-        margin-left: 2em;
-        margin-right: 2em;
+        margin-left: 1em;
+        margin-right: 1em;
         text-align: center;            
     }
 

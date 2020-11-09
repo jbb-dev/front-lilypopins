@@ -34,8 +34,11 @@ const FollowUp = () => {
                 </div>
       
             :
+            <div>
+
+                <BackHome />
+
                 <div className='FollowUp-Page'>
-                    <BackHome />
 
                     <ProfileSelect 
                         title= {{
@@ -53,7 +56,7 @@ const FollowUp = () => {
                     <MyDemands />
 
                 </div> 
-
+            </div>
             }
 
         

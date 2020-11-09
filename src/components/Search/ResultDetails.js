@@ -82,67 +82,68 @@ const ResultDetails = (props) => {
                     <p style={{'textAlign' : 'center'}}>Chargement en cours...</p>
                 </div>
             :
-
-        
-            <div className="main-result-detail">
+            <div>
 
                 <Back title='Précédent' link='/search/results' />
-                {/* Display Success or Error messages */}
-                {errorMessage !== null ? <div className="alert alert-danger" role="alert">{errorMessage}</div> : null}
-                {errorMessage === null && hasSentMessage ? <div className="alert alert-success" role="alert">Votre demande a bien été transmise à {dataUser.firstname}</div> : null}
+    
+                <div className="main-result-detail">
+
+                    {/* Display Success or Error messages */}
+                    {errorMessage !== null ? <div className="alert alert-danger" role="alert">{errorMessage}</div> : null}
+                    {errorMessage === null && hasSentMessage ? <div className="alert alert-success" role="alert">Votre demande a bien été transmise à {dataUser.firstname}</div> : null}
 
 
-                <div className='parent-info'>
-                    <img className="parent-avatar" src={dataUser.avatar} alt="parent-avatar"></img>
-                    <h5>{dataUser.firstname} {dataUser.lastname}</h5>
-                    <p>{dataUser.age} ans</p>
-                    <p>Habite à {dataUser.city}, {dataUser.postalCode}</p>
-                    <p className='biography'>" {dataUser.biography} "</p>
-                </div>
-
-
-                <div className='parent-availabilities'>
-                    <Button id='toggle-parent-availabilities' className='toggle-parent-button' onClick={toggleOne} style={{ marginBottom: '1rem' }}>Mes dispos pour garder vos enfants :</Button>
-                    <Collapse isOpen={isOpenOne}> 
-                    <div>
-                        {dataUser.availabilities.lundi.start && dataUser.availabilities.lundi.end !== '' ? <p>Lundi : <span>De</span> {dataUser.availabilities.lundi.start} à {dataUser.availabilities.lundi.end}</p> : null}
-                        {dataUser.availabilities.mardi.start && dataUser.availabilities.mardi.end !== '' ?<p>Mardi : <span>De</span> {dataUser.availabilities.mardi.start} à {dataUser.availabilities.mardi.end}</p> : null}
-                        {dataUser.availabilities.mercredi.start && dataUser.availabilities.mercredi.end !== '' ?<p>Mercredi : <span>De</span> {dataUser.availabilities.mercredi.start} à {dataUser.availabilities.mercredi.end}</p> : null}
-                        {dataUser.availabilities.jeudi.start && dataUser.availabilities.jeudi.end !== '' ?<p>Jeudi : <span>De</span> {dataUser.availabilities.jeudi.start} à {dataUser.availabilities.jeudi.end}</p> : null}
-                        {dataUser.availabilities.vendredi.start && dataUser.availabilities.vendredi.end !== '' ?<p>Vendredi : <span>De</span> {dataUser.availabilities.vendredi.start} à {dataUser.availabilities.vendredi.end}</p> : null}
-                        {dataUser.availabilities.samedi.start && dataUser.availabilities.samedi.end !== '' ?<p>Samedi : <span>De</span> {dataUser.availabilities.samedi.start} à {dataUser.availabilities.samedi.end}</p> : null}
-                        {dataUser.availabilities.dimanche.start && dataUser.availabilities.dimanche.end !== '' ?<p>Dimanche : <span>De</span> {dataUser.availabilities.dimanche.start} à {dataUser.availabilities.dimanche.end}</p> : null}
+                    <div className='parent-info'>
+                        <img className="parent-avatar" src={dataUser.avatar} alt="parent-avatar"></img>
+                        <h5>{dataUser.firstname} {dataUser.lastname}</h5>
+                        <p>{dataUser.age} ans</p>
+                        <p>Habite à {dataUser.city}, {dataUser.postalCode}</p>
+                        <p className='biography'>" {dataUser.biography} "</p>
                     </div>
-                    </Collapse>               
+
+
+                    <div className='parent-availabilities'>
+                        <Button id='toggle-parent-availabilities' className='toggle-parent-button' onClick={toggleOne} style={{ marginBottom: '1rem' }}>Mes dispos pour garder vos enfants :</Button>
+                        <Collapse isOpen={isOpenOne}> 
+                        <div>
+                            {dataUser.availabilities.lundi.start && dataUser.availabilities.lundi.end !== '' ? <p>Lundi : <span>De</span> {dataUser.availabilities.lundi.start} à {dataUser.availabilities.lundi.end}</p> : null}
+                            {dataUser.availabilities.mardi.start && dataUser.availabilities.mardi.end !== '' ?<p>Mardi : <span>De</span> {dataUser.availabilities.mardi.start} à {dataUser.availabilities.mardi.end}</p> : null}
+                            {dataUser.availabilities.mercredi.start && dataUser.availabilities.mercredi.end !== '' ?<p>Mercredi : <span>De</span> {dataUser.availabilities.mercredi.start} à {dataUser.availabilities.mercredi.end}</p> : null}
+                            {dataUser.availabilities.jeudi.start && dataUser.availabilities.jeudi.end !== '' ?<p>Jeudi : <span>De</span> {dataUser.availabilities.jeudi.start} à {dataUser.availabilities.jeudi.end}</p> : null}
+                            {dataUser.availabilities.vendredi.start && dataUser.availabilities.vendredi.end !== '' ?<p>Vendredi : <span>De</span> {dataUser.availabilities.vendredi.start} à {dataUser.availabilities.vendredi.end}</p> : null}
+                            {dataUser.availabilities.samedi.start && dataUser.availabilities.samedi.end !== '' ?<p>Samedi : <span>De</span> {dataUser.availabilities.samedi.start} à {dataUser.availabilities.samedi.end}</p> : null}
+                            {dataUser.availabilities.dimanche.start && dataUser.availabilities.dimanche.end !== '' ?<p>Dimanche : <span>De</span> {dataUser.availabilities.dimanche.start} à {dataUser.availabilities.dimanche.end}</p> : null}
+                        </div>
+                        </Collapse>               
+                    </div>
+
+
+                    <div className='parent-children'>
+                        <Button className='toggle-parent-button' 
+                            onClick={toggleTwo} 
+                            style={{ marginBottom: '1rem' }}>
+                            Ma petite tribu :
+                        </Button>
+                        
+                        <Collapse isOpen={isOpenTwo}> 
+                            {dataUser.Children.map(child => 
+                                <ChildCardInResultDetail data={child} key={child.id} />
+                                )}
+                        </Collapse>               
+                    </div>
+
+                    <div className='parent-children'>
+                        <ContactParentModal 
+                            firstname={dataUser.firstname} 
+                            contactedParentId={userId} 
+                            createNewDemand={createNewDemand} 
+                            messageToSend={e => setMessage(e.target.value)}
+                            text={message}
+                        />
+                    </div>
+
                 </div>
-
-
-                <div className='parent-children'>
-                    <Button className='toggle-parent-button' 
-                        onClick={toggleTwo} 
-                        style={{ marginBottom: '1rem' }}>
-                        Ma petite tribu :
-                    </Button>
-                    
-                    <Collapse isOpen={isOpenTwo}> 
-                        {dataUser.Children.map(child => 
-                            <ChildCardInResultDetail data={child} key={child.id} />
-                            )}
-                    </Collapse>               
-                </div>
-
-                <div className='parent-children'>
-                    <ContactParentModal 
-                        firstname={dataUser.firstname} 
-                        contactedParentId={userId} 
-                        createNewDemand={createNewDemand} 
-                        messageToSend={e => setMessage(e.target.value)}
-                        text={message}
-                    />
-                </div>
-
             </div>
-
             }
         </>
     )

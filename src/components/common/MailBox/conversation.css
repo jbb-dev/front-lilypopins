@@ -2,6 +2,102 @@
     display: flex;
     margin-left: 2em;
     margin-right: 2em;
-    padding-bottom: 2em;
     flex-direction: column;
+    margin-bottom:1em;
 }
+
+.main-message {
+    margin-left: 2em;
+    
+}
+
+#dateMsg {
+    font-size: 10px!important;
+    font-weight: 600 !important;
+    text-align: center;
+    font-style: italic;
+}
+
+.myUser {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-end;
+    padding-right: 0.7em;
+    padding-left: 0.7em;
+    padding-top: 8px;
+    margin-bottom: 0.7em;
+    margin-left: 10%;
+    background-color: #b0b9d365;
+    border-radius: 8px;
+}
+.myUser h5 { 
+    color: #545b62;
+}
+.myUser p { 
+    text-align: right;
+}
+
+
+.otherUser {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: flex-start;
+    padding-left: 0.7em;
+    padding-top: 8px;
+    margin-bottom: 0.7em;
+    margin-right: 10%;
+    background-color: #b0b9d350;
+    border-radius: 8px;
+}
+
+.otherUser p { 
+    text-align: left;
+}
+.otherUser h5 {
+    color: #893cc1;
+}
+
+.send-my-message-button{
+    display: flex;
+    justify-content: flex-end;
+    width: 85vw;
+}
+
+#send-my-message {
+    background-color: #ff3dc2bb;
+    color: white;
+    border: solid 1px#ff3dc2bb;
+    width: 8em;
+    height: 2.5em;
+    margin-bottom: 1em;
+
+}
+
+#send-my-message:hover {
+    background-color: #545b62;
+    color: white;
+    border: solid 1px #545b62;;
+    width: 8em;
+    height: 2.5em;
+    margin-bottom: 1em;
+
+}
+
+.message-input {
+    margin-left: 2em;
+    margin-right: 2em;
+    width: 20em;
+}
+
+.message_forms textarea {
+    display: flex;
+    flex-wrap: wrap;
+    height: 12em;
+    background: #b0b9d380;
+    border: none;
+    border-radius: 3px;
+    width: 85vw;
+    padding: 1em;
+  }
+

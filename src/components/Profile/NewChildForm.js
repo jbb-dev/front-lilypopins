@@ -70,9 +70,10 @@ const NewChildForm = () => {
 
         <Header className="header" title="Ajouter mon enfant" />
 
+        <Back title='Retour' link='/my-children' />
+
         <div className="Profile-Page">
 
-        <Back title='Retour' link='/my-children' />
 
         {error !== null ? <div class="alert alert-danger" role="alert">{error}</div> : null}
 

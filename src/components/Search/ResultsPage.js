@@ -35,10 +35,10 @@ const SearchResults = () => {
       <>
         <Header className="header" title="Résultats de la recherche" />
         
-          <div className="Results-Page">
-         
-              <Back title='Précédent' link='/search' />
-        
+        <Back title='Précédent' link='/search' />
+
+        <div className="Results-Page">
+            
           {searchResults.map(e=> 
             <ResultCard 
               data={e} 
