@@ -102,7 +102,7 @@ const MyChildren = () => {
                     <ChildCard data={child} key={child.firstname}/>)}
                 
 
-                <AddChild onClick={event =>  window.location.href='/add-my-child'}/>
+                <AddChild onClick={() =>  window.location.href='/add-my-child'}/>
 
             </div>
         </div>

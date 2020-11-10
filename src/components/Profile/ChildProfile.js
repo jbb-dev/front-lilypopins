@@ -66,9 +66,11 @@ const ChildProfile = (props) => {
                 </div>
 
             :
-                <div className="Profile-Page">
+            <div>
 
-                    <Back title='Retour' link='/my-children' />
+                <Back title='Retour' link='/my-children' />
+            
+                <div className="Profile-Page">
 
                     {wantModifProfile ? 
                         <ChildProfileForm data={dataChild} wantModif={() => setWantModifProfile(!wantModifProfile)}/>
@@ -95,7 +97,7 @@ const ChildProfile = (props) => {
                     }
 
                 </div>
-
+            </div>
             }
         </>
     )
