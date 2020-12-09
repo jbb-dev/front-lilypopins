@@ -11,7 +11,7 @@ const Conversation = (props) => {
 
     const token = localStorage.token 
 
-    const conversationId = Number(props.match.params.id)
+    const otherUserId = Number(props.match.params.id)
 
     const [myId, setMyId] = useState(null)
 
@@ -30,7 +30,7 @@ const Conversation = (props) => {
  
     // get all conversations between current user and the other one
     async function getConversations () {
-        await Axios.get(`${REACT_APP_API_URL}/api/conversations/${conversationId}`, { 
+        await Axios.get(`${REACT_APP_API_URL}/api/conversations/${otherUserId}`, { 
             headers : { 'Authorization' : 'Bearer ' + token}
           })
           .then((res) => setConversation(res.data))
@@ -49,7 +49,7 @@ const Conversation = (props) => {
     const sendMyMessage = (e) => {
         e.preventDefault()
         Axios
-        .post(`${REACT_APP_API_URL}/api/conversations/${conversationId}/newMessage`, { message : myMessage} , 
+        .post(`${REACT_APP_API_URL}/api/conversations/user/${otherUserId}/newMessage`, { message : myMessage} , 
             { 
           headers : { 'Authorization' : 'Bearer ' + token}
             })

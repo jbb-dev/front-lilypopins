@@ -6,6 +6,9 @@ import Back from '../common/Buttons/Back'
 import ChildCardInResultDetail from '../Search/ChildCardInResultDetail'
 import './demandDetail.css'
 import { Collapse, Button} from 'reactstrap'
+import NotificationBadge from 'react-notification-badge';
+import {Effect} from 'react-notification-badge';
+
 const { REACT_APP_API_URL } = process.env;
 
 
@@ -15,9 +18,6 @@ const DemandDetail = (props) => {
 
     // The id of the selected parent to contact
     const userId = Number(props.match.params.id)
-
-    // Conversation Id between current user and the contacted parent
-    const [idConversation, setIdConversation] = useState(null)
 
     const [dataUser, setDataUser] = useState(null)
 
@@ -31,17 +31,9 @@ const DemandDetail = (props) => {
     const toggleThree = () => setIsOpenThree(!isOpenThree);
     const [isOpenThree, setIsOpenThree] = useState(true)
 
+    // Number of unread messages :
+    const [unreadMsg, setUnreadMsg] = useState([])
     
-
-    // For date format
-    const options = { 
-        year: "numeric", 
-        month: "long", 
-        day: "2-digit",
-        hour : "numeric",
-        minute : "numeric"
-    };
-
     // Get information about the selected parent from its ID
     const getParentInformation = () => {
         Axios
@@ -52,9 +44,20 @@ const DemandDetail = (props) => {
         .catch(err=> console.log(err.response.data.error))        
     }
 
-    
+    const countUnreadMsg = () => {
+        Axios
+        .get(`${REACT_APP_API_URL}/api/conversations/${userId}/unreadMsg`, 
+            { 
+                headers : { 'Authorization' : 'Bearer ' + token },
+            })
+        .then((res) => setUnreadMsg(res.data))
+        .catch((error)=> console.log(error)) 
+    }
+
+
     useEffect(() => {
-        getParentInformation()
+        getParentInformation();
+        countUnreadMsg();
     }, [])
 
     return (
@@ -65,9 +68,12 @@ const DemandDetail = (props) => {
                 <div className="top-demand-detail">
                     <Back title='Précédent'/>
                     <Link to={{ pathname: `conversation/${userId}`}} style={{ textDecoration: "none" }} >
-                        <span style={{"font-size": "48px", "color": "#5a6268"}}>
-                            <i className="fas fa-envelope" id="enveloppe" />
-                        </span>
+                        <div className='mailbox'>
+                            <NotificationBadge count={unreadMsg} style={{'backgroundColor' : '#ff3dc2bb', 'top' : '5px',}} effect={Effect.SCALE}/>
+                            <span style={{"font-size": "48px", "color": "#5a6268"}}>
+                                <i className="fas fa-envelope" id="enveloppe" />
+                            </span>
+                        </div>
                     </Link>
                 </div>
 

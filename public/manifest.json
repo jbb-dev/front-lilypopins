@@ -7,7 +7,12 @@
   "scope": "/",
   "start_url": "/",
   "icons": [
- 
+
+    {
+      "src": "favicon.ico",
+      "type": "64x64 32x32 24x24 16x16",
+      "sizes": "image/x-icon"
+    },
     {
       "src": "images/icons/icon-192x192.png",
       "type": "image/png",

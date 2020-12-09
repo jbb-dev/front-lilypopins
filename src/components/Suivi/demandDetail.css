@@ -37,3 +37,7 @@
 #enveloppe:hover {
     color: #ff3dc2bb;
 }
+
+.mailbox{
+    display: inline;
+}

@@ -16,6 +16,7 @@ import FollowUp from './components/Suivi/FollowUp'
 import MyBabbySitting from './components/Suivi/MyBabbySittings'
 import DemandDetail from './components/Suivi/DemandDetail'
 import Conversation from './components/common/MailBox/Conversation'
+import MyCalendar from './components/Calendar/MyCalendar'
 
 import { UserContext } from './context/UserContext'
 import { userProfileContext } from './context/UserContext'
@@ -47,6 +48,7 @@ const Router = () => {
                 <Route exact path="/my-kidsitting" component={MyBabbySitting} />
                 <Route exact path="/my-demands/parent/:id" component={DemandDetail} />
                 <Route exact path="/my-demands/parent/conversation/:id" component={Conversation} />
+                <Route exact path="/my-planning" component={MyCalendar} />               
                 <UserContext.Provider value={providerUserProfile}>
                     <Route exact path="/register" component={Register} />
                     <Route exact path="/register-step2" component={RegisterStep2} />

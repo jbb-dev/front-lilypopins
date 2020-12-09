@@ -51,7 +51,7 @@ const Home = () => {
                 </div>
             </Link>
 
-            <Link to="/home" style={{ textDecoration: "none" }}>
+            <Link to="/my-planning" style={{ textDecoration: "none" }}>
                 <div className='homeBtn' >
                     <i className="far fa-calendar-alt"></i>
                     <p className='textBtn'> Mon calendrier partagé </p>
