@@ -68,7 +68,15 @@ const MyBabbySittings = () => {
                         />
                         { myBabbySittings.length !== 0 ?
                             myBabbySittings.map(demand => (
-                                <DemandCard contactedParent={demand.Users[0].firstname} status={demand.status} date={demand.beginAt} avatar={demand.Users[0].avatar} userId={demand.Users[0].id} isMyDemand={false} />
+                                <DemandCard 
+                                    contactedParent={demand.Users[0].firstname} 
+                                    status={demand.status} 
+                                    date={demand.beginAt} 
+                                    avatar={demand.Users[0].avatar} 
+                                    userId={demand.Users[0].id} 
+                                    isMyDemand={false} 
+                                    contactedParentId={demand.contactedParentId}
+                                />
                             ))
                         : 
                             <p style={{'text-align': 'center'}}>Vous n'avez pas reçu de demande de garde pour l'instant.</p>

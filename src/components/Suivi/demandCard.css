@@ -14,7 +14,8 @@
     margin-bottom: 1em;
 }
 
-  .button-delete-demand{
+  .footer-demandCard{
     display: flex;
     justify-content: flex-end;
 }
+

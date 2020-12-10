@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import Axios from 'axios';
+import './myCalendar.css'
 import Header from "../common/Header/Header"
 import BackHome from '../common/Buttons/BackHome';
 import CalendarEventModal from '../common/Modals/CalendarEventModal';
@@ -23,6 +24,8 @@ const MyCalendar = () => {
 
     const [events, setEvents] = useState([])
 
+    const [selectedEvent, setSelectedEvent] = useState(null)
+
     const messages = {
         allDay: 'journée',
         previous: 'précédent',
@@ -45,7 +48,7 @@ const MyCalendar = () => {
         let data = response.data
         setMyDemands(data)
 
-        // Then extract only important info in order to populate calendar
+        // Then extract only important info in order to populate calendar - modify the date format 
         let cleanInfo = []
         let cleanDemands = data.map(demand => {
             let cleanDemand = {
@@ -53,7 +56,7 @@ const MyCalendar = () => {
                 end : new Date(demand.endAt),
                 title : 'test'
                 }
-            cleanInfo.push(cleanDemand)})
+            cleanInfo.push(Object.assign(demand, cleanDemand))})
         setEvents(cleanInfo)
     }
 
@@ -69,24 +72,30 @@ const MyCalendar = () => {
         <div>
             <Header className="header" title="Mon planning" />
             <BackHome />
-            <CalendarEventModal />
-            <div style={{ height: 700 }}>
-                <Calendar
-                    localizer={localizer}
-                    events={events}
-                    startAccessor="start"
-                    endAccessor="end"
-                    step={5}
-                    timeslots={3}
-                    view="week"
-                    views={["week"]}
-                    messages={messages}
-                    defaultDate={new Date()}
-                    culture="fr"
-                    min={new Date(0, 0, 0, 7, 0, 0)} // start time 7:00
-                    max={new Date(0, 0, 0, 23, 0, 0)} // end time 23:00
-                    onSelectEvent={event => alert(event)}               
-                />                
+            <div className="container-calendar">
+                <div style={{ height: 700 }}>
+                    <Calendar
+                        localizer={localizer}
+                        events={events}
+                        startAccessor="start"
+                        endAccessor="end"
+                        step={5}
+                        timeslots={3}
+                        views={["month"]}
+                        messages={messages}
+                        defaultDate={new Date()}
+                        culture="fr"
+                        min={new Date(0, 0, 0, 7, 0, 0)} // start time 7:00
+                        max={new Date(0, 0, 0, 23, 0, 0)} // end time 23:00
+                        onSelectEvent={event => {
+                            setSelectedEvent(event) // charge le jour sélectioné avant de créer la modale
+                            handleModal() // affiche la modale
+                        }}
+                    />   
+                    {showEventModal && 
+                        <CalendarEventModal handleModal={handleModal} isOpen={showEventModal} data={selectedEvent} />
+                    }    
+                </div>
             </div>
         </div>    
     )

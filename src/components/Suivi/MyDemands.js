@@ -27,7 +27,17 @@ const MyDemands = () => {
             <>
             { myDemands.length !== 0 ?
                 myDemands.map(demand => (
-                    <DemandCard key={demand.id} contactedParent={demand.Users[0].firstname} status={demand.status} date={demand.beginAt} endDate={demand.endAt} avatar={demand.Users[0].avatar} isMyDemand={true} userId={demand.Users[0].id} />
+                    <DemandCard 
+                        key={demand.id} 
+                        contactedParent={demand.Users[0].firstname} 
+                        status={demand.status} 
+                        date={demand.beginAt} 
+                        endDate={demand.endAt} 
+                        avatar={demand.Users[0].avatar} 
+                        isMyDemand={true} 
+                        userId={demand.Users[0].id} 
+                        contactedParentId={demand.contactedParentId}
+                    />
                 ))
             : 
                 <p style={{'text-align': 'center'}}>Vous n'avez pas encore fait de demande de garde pour l'instant.</p>
