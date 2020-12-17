@@ -13,6 +13,16 @@ const MyBabbySittings = () => {
     const token = localStorage.token
 
     const [myBabbySittings, setMyBabbySittings] = useState([])
+
+    const [errorMessage, setErroMessage] = useState(null)
+
+    const [sucessMessage, setSucessMessage] = useState(null)
+
+    const [numberOfDeletion, setNumberOfDeletion] = useState(0)
+
+    // Count how many acceptations to have a new render with useEffect
+    const [numberOfAccept, setNumberOfAccept] = useState(0)
+
     
     const getMyBabbySittings = () => {
         Axios
@@ -23,9 +33,27 @@ const MyBabbySittings = () => {
         .catch(err => console.log(err))
     }
 
+    const deleteDemand = (demandId) => {
+        Axios
+        .delete(`${REACT_APP_API_URL}/api/demands/delete/${demandId}`, {headers : { 'Authorization' : 'Bearer ' + token}} )
+        .then(res => setSucessMessage(res.data))
+        .finally(setNumberOfDeletion(numberOfDeletion + 1))
+        .catch(err => setErroMessage(err.data))
+    }
+
+    const acceptDemand = (demandId) => {
+        Axios
+        .put(`${REACT_APP_API_URL}/api/demands/accept/${demandId}`, {headers : { 'Authorization' : 'Bearer ' + token}} )
+        .then(res => setSucessMessage(res.data))
+        .finally(setNumberOfAccept(numberOfAccept + 1))
+        .catch(err => setErroMessage(err.data))
+
+    }
+
+
     useEffect(() => {
         getMyBabbySittings()
-      }, []);
+      }, [numberOfDeletion]);
 
     return (
             <>
@@ -66,16 +94,28 @@ const MyBabbySittings = () => {
                                 option2 : '/my-kidsitting' 
                                     }}
                         />
-                        { myBabbySittings.length !== 0 ?
+
+                        {/* Display Success or Error messages */}
+                        {errorMessage !== null ? <div className="alert alert-danger" role="alert">{errorMessage}</div> : null}
+                        {sucessMessage !== null ? <div className="alert alert-success" role="alert">{sucessMessage}</div> : null}
+
+
+                        { myBabbySittings.length > 0 ?
                             myBabbySittings.map(demand => (
                                 <DemandCard 
+                                    isMyDemand={false} 
+                                    contactedParentId={demand.contactedParentId}
+                                    key={demand.id} 
                                     contactedParent={demand.Users[0].firstname} 
                                     status={demand.status} 
                                     date={demand.beginAt} 
+                                    endDate={demand.endAt} 
                                     avatar={demand.Users[0].avatar} 
                                     userId={demand.Users[0].id} 
-                                    isMyDemand={false} 
                                     contactedParentId={demand.contactedParentId}
+                                    demandId={demand.id}
+                                    deleteDemand={deleteDemand}
+                                    acceptDemand={acceptDemand}
                                 />
                             ))
                         : 

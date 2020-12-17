@@ -15,7 +15,7 @@ const Search = () => {
 
     const { searchContext, setSearchContext } = useContext(SearchContext)
 
-    const [startDate, setStartDate] = useState(null)
+    const [startDate, setStartDate] = useState(new Date())
     const [startHour, setStartHour] = useState(null)
     const [endHour, setEndHour] = useState(null)
 
@@ -72,7 +72,6 @@ const Search = () => {
                                 selected={startHour} 
                                 timeIntervals={15}
                                 timeCaption=""
-                                dateFormat="h:mm "
                                 dateFormat="HH:mm "
                                 locale="fr"
                             />

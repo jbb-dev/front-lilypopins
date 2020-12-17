@@ -16,6 +16,7 @@
 
   .footer-demandCard{
     display: flex;
-    justify-content: flex-end;
+    flex-direction: column;
+    padding: 1em;
 }
 

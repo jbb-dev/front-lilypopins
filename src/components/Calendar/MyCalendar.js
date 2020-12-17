@@ -88,7 +88,7 @@ const MyCalendar = () => {
                         min={new Date(0, 0, 0, 7, 0, 0)} // start time 7:00
                         max={new Date(0, 0, 0, 23, 0, 0)} // end time 23:00
                         onSelectEvent={event => {
-                            setSelectedEvent(event) // charge le jour sélectioné avant de créer la modale
+                            setSelectedEvent(event) // charge l'évenement sélectioné avant de créer la modale
                             handleModal() // affiche la modale
                         }}
                     />   

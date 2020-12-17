@@ -4,13 +4,15 @@ import { Button } from 'reactstrap';
 import { Link } from "react-router-dom"
 import CancelDemandModal from '../common/Modals/CancelDemandModal';
 
-const { REACT_APP_API_URL } = process.env;
-
 
 const DemandCard = (props) => {
-    const { contactedParent, contactedParentId, status, date, endDate, avatar, isMyDemand, userId} = props;
+    const { contactedParent, contactedParentId, status, date, endDate, avatar, isMyDemand, demandId, deleteDemand, acceptDemand } = props;
 
+    // Modal Cancel Demand
     const [hasCanceled, setHasCanceled] = useState(false)
+
+    // Modal Accept Demand
+    const [hasAccept, setHasAccept] = useState(false)
 
     // For date format
     const options = { 
@@ -21,13 +23,11 @@ const DemandCard = (props) => {
         minute : "numeric"
     };
 
-
     return (
             <>
-                <Link to={{ pathname: `my-demands/parent/${contactedParentId}`}} style={{ textDecoration: "none" }} >
-                    <div className="card" style={{'color' : 'black'}} >
+                <div className="card" style={{'color' : 'black'}} key={demandId} >
+                    <Link to={{ pathname: `my-demands/parent/${contactedParentId}`}} style={{ textDecoration: "none", color : 'black' }} >
                         <div className="card-body">
-                            <div >
                                 <h5 className="card-title" style={{'textAlign': 'center'}}>Le {new Date(date).toLocaleDateString("fr-FR", options)} jusqu'à {new Date(endDate).getHours()}h{new Date(endDate).getMinutes()}</h5>
                                 <div className='demand-main-info'>
                                     {isMyDemand ? 
@@ -38,18 +38,28 @@ const DemandCard = (props) => {
                                         <img src={avatar} alt='avatar' id="avatar-small"/>
                                         <p style={{'textAlign': 'center'}}>Status : {status}</p>
                                 </div>
-                            </div>
-                            <div className="footer-demandCard">
-                                <Button color="secondary" onClick={() => window.location.href=`/my-demands/parent/conversation/${contactedParentId}` }>Envoyer un message</Button>
-                                <Button color="danger" onClick={() => setHasCanceled(!hasCanceled)}>Annuler la demande</Button>
-                            </div>
                         </div>
-                    </div>
-                    {hasCanceled ? 
-                        <CancelDemandModal />
-                    : null
-                    }
-                </Link>
+                    </Link>
+                        < div className="footer-demandCard">
+                            { hasAccept === false && isMyDemand === false ? 
+                                <Button color= "success" 
+                                    onClick={() => 
+                                        // setHasAccept(!hasAccept) 
+                                        acceptDemand(demandId)} 
+                                    style={{ marginBottom: '1em', borderRadius : '20px' }} >Accepter la garde</Button>
+                                : null }
+
+                            <Button color="secondary" onClick={() => window.location.href=`/my-demands/parent/conversation/${contactedParentId}`} style={{ marginBottom: '1em', borderRadius : '20px' }} >Envoyer un message</Button>
+
+                            { hasCanceled === false ? 
+                                <Button color="danger" onClick={() => setHasCanceled(!hasCanceled)} style={{ marginBottom: '1em', borderRadius : '20px' }} >Annuler la demande</Button>
+                                : null }
+                        </div>
+                </div>
+                {hasCanceled ? 
+                    <CancelDemandModal deleteDemand={deleteDemand} demandId={demandId} contactedParent={contactedParent} hasCanceled={hasCanceled} setHasCanceledDemand={setHasCanceled} />
+                : null
+                }
             </>
             )
 }
