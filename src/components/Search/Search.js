@@ -8,7 +8,6 @@ import { SearchContext } from '../../context/SearchContext'
 import DatePicker, { registerLocale } from "react-datepicker"
 import "react-datepicker/dist/react-datepicker.css"
 import fr from "date-fns/locale/fr"
-import { set } from 'date-fns'
 registerLocale("fr", fr)
  
 const Search = () => {
@@ -18,19 +17,6 @@ const Search = () => {
     const [startDate, setStartDate] = useState(new Date())
     const [startHour, setStartHour] = useState(null)
     const [endHour, setEndHour] = useState(null)
-
-    const convertDateToDay = date => {
-        let jourSemaine = date.getDay();
-        // let jourMois = date.getDate();
-        // let mois = date.getMonth();
-        // let annee = date.getFullYear();
-        // let heures = date.getHours();
-        // let heuresUTC = date.getUTCHours();
-        // let minutes = date.getMinutes();
-        // let secondes = date.getSeconds();
-        // let ms = date.getMilliseconds();
-        return jourSemaine
-    }
     
 
     return (
@@ -93,7 +79,7 @@ const Search = () => {
                             showTimeSelectOnly
                             timeIntervals={15}
                             timeCaption=""
-                            dateFormat="h:mm "
+                            // dateFormat="h:mm "
                             dateFormat="HH:mm "
                             locale="fr"
                         />

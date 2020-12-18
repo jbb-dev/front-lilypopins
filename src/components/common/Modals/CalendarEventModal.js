@@ -1,5 +1,5 @@
-import React, { useState } from 'react';
-import { Button, Modal, ModalHeader, ModalBody, ModalFooter } from 'reactstrap';
+import React from 'react';
+import { Modal, ModalHeader, ModalBody } from 'reactstrap';
 import './contactParentModal.css';
 import DemandCard from '../../Suivi/DemandCard'
 
