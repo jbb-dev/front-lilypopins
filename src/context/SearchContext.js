@@ -2,7 +2,7 @@ import { createContext } from 'react'
 
 
 export const userSearchContext = {
-    date : null,
+    date : new Date(),
     startHour : null,
     endHour : null
 }

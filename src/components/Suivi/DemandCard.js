@@ -40,15 +40,15 @@ const DemandCard = (props) => {
                                 </div>
                         </div>
                     </Link>
-                        < div className="footer-demandCard">
-                            { hasAccept === false && isMyDemand === false ? 
+                        <div className="footer-demandCard">
+                            { isMyDemand === false && status === 'opened' ? 
                                 <Button color= "success" 
-                                    onClick={() => 
-                                        // setHasAccept(!hasAccept) 
-                                        acceptDemand(demandId)} 
-                                    style={{ marginBottom: '1em', borderRadius : '20px' }} >Accepter la garde</Button>
-                                : null }
-
+                                    onClick={() => acceptDemand(demandId)} 
+                                    style={{ marginBottom: '1em', borderRadius : '20px' }} >
+                                Accepter la garde
+                                </Button>
+                                : null 
+                            }
                             <Button color="secondary" onClick={() => window.location.href=`/my-demands/parent/conversation/${contactedParentId}`} style={{ marginBottom: '1em', borderRadius : '20px' }} >Envoyer un message</Button>
 
                             { hasCanceled === false ? 

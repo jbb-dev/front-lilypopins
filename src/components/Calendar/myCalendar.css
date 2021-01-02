@@ -1,5 +1,40 @@
+.legend {
+    display: flex;
+    flex-direction: column;
+    padding: 1em;
+}
+
+.legend-text {
+    font-size: 0.7em !important;
+    margin-left: 1em;
+    margin-bottom: 0;
+}
+
+.legend-left {
+    display: flex;
+    align-items: baseline;
+}
+
+.legend-right {
+    display: flex;
+    align-items: baseline;
+}
+
+.legend-color-left {
+    background-color: #ff3dc2bb;
+    height: 10px;
+    width: 60px;
+}
+
+.legend-color-right {
+    background-color: #3174ad;
+    height: 10px;
+    width: 60px;
+}
+
 .container-calendar {
     display: flex;
     flex-direction: column;
     padding: 1em;
 }
+

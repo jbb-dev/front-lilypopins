@@ -8,8 +8,6 @@ const CalendarEventModal = (props) => {
 
   const {isOpen, handleModal, data} = props
 
-  console.log(data)
-
   return (
 
     <div className="main-contact-parent-modal">
@@ -22,7 +20,7 @@ const CalendarEventModal = (props) => {
             date={data.beginAt}
             endDate={data.endAt}
             avatar={data.Users[0].avatar}
-            // isMyDemand=
+            isMyDemand={data.isMyDemand}
             userId={data.id}
             contactedParentId={data.contactedParentId}
           />

@@ -64,7 +64,7 @@ const MyDemands = () => {
                     />
                 ))
             : 
-                <p style={{'text-align': 'center'}}>Vous n'avez pas encore fait de demande de garde pour l'instant.</p>
+                <p style={{'textAlign': 'center'}}>Vous n'avez pas encore fait de demande de garde pour l'instant.</p>
             }
             </>
             )

@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react'
+import React, { useState, useEffect, useRef } from 'react'
 import { Form, Button, Container, Image, InputGroup} from 'react-bootstrap'
 import Axios from "axios";
 import Header from '../Header/Header'
@@ -19,6 +19,14 @@ const Conversation = (props) => {
     const [conversation, setConversation] = useState(null)
     // the message to send
     const [myMessage, setMyMessage] = useState('')
+    // the last message to display by scrolling bottom
+    const divRef = useRef(null);
+
+    const scrollToBottom = () => {
+        if (divRef.current) {
+            divRef.current.scrollIntoView({ behavior: 'smooth' });
+        }
+    }
 
     const options = { 
         year: "numeric", 
@@ -62,6 +70,10 @@ const Conversation = (props) => {
         getMyId()
       }, []);
 
+    useEffect(() => {
+        scrollToBottom() 
+    }, [conversation])
+
     return (
         <>
 
@@ -92,7 +104,9 @@ const Conversation = (props) => {
                         )
                             }
                         </Form.Group>
+                        <div ref={divRef} />
                     </div>
+
                 :
                     <p style={{'text-align' : 'center'}}>Aucune conversation trouvée</p>
                 }

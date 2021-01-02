@@ -43,7 +43,7 @@ const MyBabbySittings = () => {
 
     const acceptDemand = (demandId) => {
         Axios
-        .put(`${REACT_APP_API_URL}/api/demands/accept/${demandId}`, {headers : { 'Authorization' : 'Bearer ' + token}} )
+        .get(`${REACT_APP_API_URL}/api/demands/accept/${demandId}`, {headers : { 'Authorization' : 'Bearer ' + token}} )
         .then(res => setSucessMessage(res.data))
         .finally(setNumberOfAccept(numberOfAccept + 1))
         .catch(err => setErroMessage(err.data))
@@ -53,7 +53,7 @@ const MyBabbySittings = () => {
 
     useEffect(() => {
         getMyBabbySittings()
-      }, [numberOfDeletion]);
+      }, [numberOfDeletion, numberOfAccept]);
 
     return (
             <>
@@ -119,7 +119,7 @@ const MyBabbySittings = () => {
                                 />
                             ))
                         : 
-                            <p style={{'text-align': 'center'}}>Vous n'avez pas reçu de demande de garde pour l'instant.</p>
+                            <p style={{'textAlign': 'center'}}>Vous n'avez pas reçu de demande de garde pour l'instant.</p>
                         }
                     </div>
                 </div> 
