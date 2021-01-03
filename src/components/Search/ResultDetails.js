@@ -96,8 +96,6 @@ const ResultDetails = (props) => {
 
                 <Back title='Précédent' link='/search/results' />
                
-                <h5 className="card-title" style={{'text-align': 'center'}}>{new Date(searchContext.date).toLocaleDateString("fr-FR", options)}</h5>
-
                 <div className="main-result-detail">
 
                     {/* Display Success or Error messages */}
