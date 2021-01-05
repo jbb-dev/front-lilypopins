@@ -1,20 +1,28 @@
 /* Home Page : ACCEUIL */
 .mainHome {
     display: flex;
-    align-items: center;
-    flex-flow: column nowrap;
+    flex-direction: column;
+    background-position: center;
+    background-size: cover;
+    background-image: url('https://atelier-de-jb.fr/wp-content/uploads/2021/01/217-scaled.jpg');
+    height: 100vh;
+    justify-content: center;
   }
 
-  .welcome {
-    font-size: 1.4em;
+  .home-welcome {
+    font-family: 'Archivo Black', sans-serif, Arial, "Helvetica Neue", Helvetica, sans-serif;
+    font-size: 2.2em;
 
   }
 
-  .welcomeText {
+  p {
+    margin : 0 !important
+  }
+
+  .home-welcomeText {
     font-size: 1em;
     font-weight: 300;
     text-align: center;
-    margin-bottom: 2em;
   }
   /* HEADER  */
   .headerHome {
@@ -27,19 +35,34 @@
     padding: 0.8em;
     margin-bottom: 1em;
     word-break: break-all !important;
-   
-}
+  }
 
-      /* menu button */
-  .homeBtn {
+    
+  .contentBtn {
+    display: flex;
+    align-items: baseline;
+    background-color: #c0d6e498;
+    border-radius: 10px;
+  }
+
+  .icon-wrapper {
     display: flex;
     justify-content: center;
-    align-items: baseline;
-    flex-flow: row nowrap;
+    align-items: center;
+    background-color: #ee88a3a2;
+    width: 4.5em;
+    height: 5.5em;
+    border-radius: 10px 0px 0px 10px;
+  }
+      /* menu button */
+
+  .homeBtn-wrapper {
     padding: 1em;
-    margin: 0.8em;
-    width: 20em;
-    height: 4.5em;
+  }
+
+  .homeBtn {
+    margin: 0.8em 0.8em 1.5em 0.8em;
+    height: 5.5em;
     border-radius: 10px;
     box-shadow: 1px 3px 3px 2px #77838F65;
     color: black
@@ -48,12 +71,13 @@
   .homeBtn:hover {
     background-color: #ff3dc2bb;
   }
-  
+
+
   .textBtn {
-    font-family: 'Montserrat' sans-serif;
-    font-weight: 500;
-    font-size: 1.2em;
-    margin-left: 1em;
+    font-family: 'open-sans', sans-serif;
+    font-weight: 400 !important;
+    font-size: 1.3em !important;
+    margin-left: 10px !important;
   }
 
  /* logout button */
@@ -83,4 +107,5 @@
 .logout {
   margin-top : 2em;
   color : #893cc1;
+  text-align: center
 }

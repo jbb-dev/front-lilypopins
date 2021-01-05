@@ -18,7 +18,7 @@ const RegisterStep2 = () => {
         <div className='mainRegister'>
 
 
-        <h3 className='welcome'>Présentez-vous</h3>
+        <h3 className='register-welcome'>Présentez-vous</h3>
 
         <div className="register_page">
           <form className="register_forms">

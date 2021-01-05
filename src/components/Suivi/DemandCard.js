@@ -6,7 +6,7 @@ import CancelDemandModal from '../common/Modals/CancelDemandModal';
 
 
 const DemandCard = (props) => {
-    const { contactedParent, contactedParentId, status, date, endDate, avatar, isMyDemand, demandId, deleteDemand, acceptDemand } = props;
+    const { contactedParent, contactedParentId, status, date, endDate, avatar, isMyDemand, demandId, deleteDemand, acceptDemand, userId } = props;
 
     // Modal Cancel Demand
     const [hasCanceled, setHasCanceled] = useState(false)
@@ -26,7 +26,7 @@ const DemandCard = (props) => {
     return (
             <>
                 <div className="card" style={{'color' : 'black'}} key={demandId} >
-                    <Link to={{ pathname: `my-demands/parent/${contactedParentId}`}} style={{ textDecoration: "none", color : 'black' }} >
+                    <Link to={{ pathname: `my-demands/parent/${userId}`}} style={{ textDecoration: "none", color : 'black' }} >
                         <div className="card-body">
                                 <h5 className="card-title" style={{'textAlign': 'center'}}>Le {new Date(date).toLocaleDateString("fr-FR", options)} jusqu'à {new Date(endDate).getHours()}h{new Date(endDate).getMinutes()}</h5>
                                 <div className='demand-main-info'>
@@ -47,13 +47,17 @@ const DemandCard = (props) => {
                                     style={{ marginBottom: '1em', borderRadius : '20px' }} >
                                 Accepter la garde
                                 </Button>
-                                : null 
-                            }
-                            <Button color="secondary" onClick={() => window.location.href=`/my-demands/parent/conversation/${contactedParentId}`} style={{ marginBottom: '1em', borderRadius : '20px' }} >Envoyer un message</Button>
+                            : null }
+                            
+                            <Button color="secondary" onClick={() => {isMyDemand ? window.location.href=`/my-demands/parent/conversation/${contactedParentId}` : window.location.href=`/my-demands/parent/conversation/${userId}`} } style={{ marginBottom: '1em', borderRadius : '20px' }} >
+                                Envoyer un message
+                            </Button>
 
                             { hasCanceled === false ? 
-                                <Button color="danger" onClick={() => setHasCanceled(!hasCanceled)} style={{ marginBottom: '1em', borderRadius : '20px' }} >Annuler la demande</Button>
-                                : null }
+                                <Button color="danger" onClick={() => setHasCanceled(!hasCanceled)} style={{ marginBottom: '1em', borderRadius : '20px' }} >
+                                    Annuler la demande
+                                </Button>
+                            : null }
                         </div>
                 </div>
                 {hasCanceled ? 

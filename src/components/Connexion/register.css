@@ -14,13 +14,13 @@
     align-items: center;
   }
 
-  .welcome {
+  .register-welcome {
     font-size: 1.2em;
     margin-bottom: 1em;
     text-align: center;
   }
 
-  .welcome-text {
+  .register-welcome-text {
     text-align: center;
     margin: 0 0 2em 0
   }

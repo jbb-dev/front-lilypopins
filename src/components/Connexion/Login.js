@@ -37,11 +37,11 @@ const Login = () => {
 
         <div className='mainLogin'>
 
+            <h1 id="logoTitle" >lilypopins</h1>
 
             <div className="login_page">
 
-                <img className="login_logo" src={logo} alt="logo" />
-
+                {/* <img className="login_logo" src={logo} alt="logo" /> */}
                 {error !== null ? <div class="alert alert-danger" role="alert">{error}</div> : null}
 
                 <form className="login_forms">

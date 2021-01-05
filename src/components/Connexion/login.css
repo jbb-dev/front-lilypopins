@@ -4,14 +4,17 @@
   .mainLogin {
     background-position: center;
     background-size: cover;
-    background-image: url('https://atelier-de-jb.fr/wp-content/uploads/2020/11/pier-569314_1920.jpg');
+    background-image: url('https://atelier-de-jb.fr/wp-content/uploads/2021/01/1611_babysitter.png');
     height: 100vh;
     display: flex;
     flex-direction: column;
-    justify-content: center;
+    justify-content: space-evenly;
     text-align: center;
   }
   
+  #logoTitle {
+    font-family: 'Archivo Black', sans-serif, Arial, "Helvetica Neue", Helvetica, sans-serif;
+  }
   .login_page {
     display: flex;
     flex-direction: column;

@@ -5,6 +5,7 @@ import './home.css'
 import Header from '../common/Header/Header'
 import Footer from '../common/Footer/Footer'
 import Notification from '../common/Others/Notification'
+
 const { REACT_APP_API_URL } = process.env;
 
 const Home = () => {
@@ -28,53 +29,82 @@ const Home = () => {
     }, []);
 
     return (
-        <div className='mainHome'>
+        <>
+            <div className='mainHome'>
 
-            <Header title='Accueil'/>
+                {/* <Header title='Accueil'/> */}
 
-            {/* <Notification /> */}
-
-            <h3 className='welcome'>Bienvenue sur LilyPopins !</h3>
-            <p className='welcomeText'>Le baby-sitting collaboratif entre parents</p>
-
-            <Link to="/search" style={{ textDecoration: "none" }}>
-                <div className='homeBtn' >
-                    <i className="fas fa-search"></i>
-                    <p className='textBtn'> Faire garder mon enfant </p>
+                {/* <Notification /> */}
+                <div>
+                    <h3 className='home-welcome'>Bienvenue sur lilypopins !</h3>
+                    <p className='home-welcomeText'>Le baby-sitting collaboratif entre parents</p>
                 </div>
-            </Link>
+
+                <div className='homeBtn-wrapper'>
+                    <Link to="/search" style={{ textDecoration: "none" }}>
+                        <div className='homeBtn' >
+                            <div className='contentBtn'>
+                                <div className="icon-wrapper">
+                                    <i className="fas fa-search fa-2x"></i>
+                                </div>
+                                <div className="textBtn-wrapper">
+                                    <p className='textBtn'> Faire garder mon enfant </p>
+                                </div>
+                            </div>
+                        </div>
+                    </Link>
+                    
+                    <Link to="/my-demands" style={{ textDecoration: "none" }}>
+                        <div className='homeBtn' >
+                            <div className='contentBtn'>
+                                <div className="icon-wrapper">
+                                    <i className="fas fa-eye fa-2x"></i>
+                                </div>
+                                <div className="textBtn-wrapper">
+                                    <p className='textBtn'> Mon suivi des gardes </p>
+                                </div>
+                            </div>
+                        </div>
+                    </Link>
+
+                    <Link to="/my-planning" style={{ textDecoration: "none" }}>
+                        <div className='homeBtn' >
+                            <div className='contentBtn'>
+                                <div className="icon-wrapper">
+                                    <i className="fa fa-calendar fa-2x"></i>
+                                </div>
+                                <div className="textBtn-wrapper">
+                                    <p className='textBtn'> Mon calendrier partagé </p>
+                                </div>
+                            </div>
+                        </div>
+                    </Link>
+
+                    <Link to="/my-profile" style={{ textDecoration: "none" }}>
+                        <div className='homeBtn' >
+                            <div className='contentBtn'>
+                                <div className="icon-wrapper">
+                                    <i className="far fa-address-card fa-2x"></i>
+                                </div>
+                                <div className="textBtn-wrapper">
+                                    <p className='textBtn'> Mon profil utilisateur </p>
+                                </div>
+                            </div>
+                        </div>
+                    </Link>
+                </div>
+
+                <div>
+                    <Link to="/" style={{ textDecoration: "none" }}>
+                        <p className="logout">Se déconnecter</p>
+                    </Link>
+                </div>
+                
+            </div>
             
-            <Link to="/my-demands" style={{ textDecoration: "none" }}>
-                <div className='homeBtn' >
-                    <i className="fas fa-eye"></i>
-                    <p className='textBtn'> Mon suivi des gardes </p>
-                </div>
-            </Link>
+            {/* <Footer /> */}
+        </>
 
-            <Link to="/my-planning" style={{ textDecoration: "none" }}>
-                <div className='homeBtn' >
-                    <i className="far fa-calendar-alt"></i>
-                    <p className='textBtn'> Mon calendrier partagé </p>
-                </div>
-            </Link>
-
-            <Link to="/my-profile" style={{ textDecoration: "none" }}>
-                <div className='homeBtn' >
-                    <i className="far fa-address-card"></i>
-                    <p className='textBtn'> Mon profil utilisateur </p>
-                </div>
-            </Link>
-
-
-            <div>
-                <Link to="/" style={{ textDecoration: "none" }}>
-                    <p className="logout">Se déconnecter</p>
-                </Link>
-             </div>
-
-            <Footer />
-    
-        </div>
     )
 }
 
