@@ -77,7 +77,7 @@ const NewChildForm = () => {
 
         {error !== null ? <div class="alert alert-danger" role="alert">{error}</div> : null}
 
-            <h3 className='welcome'>Présentez votre enfant</h3>
+            <h3 className='register-welcome'>Présentez votre enfant</h3>
                 <form className="profile_forms">
 
                 {hasClickedOnSex ? 
