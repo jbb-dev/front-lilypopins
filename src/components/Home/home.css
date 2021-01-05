@@ -1,11 +1,15 @@
 /* Home Page : ACCEUIL */
+
+.home-wrapper {
+  background-position: center;
+  background-size: cover;
+  background-image: url('https://atelier-de-jb.fr/wp-content/uploads/2021/01/217-scaled.jpg');
+  height: 100vh;
+  display : flex;
+}
 .mainHome {
     display: flex;
     flex-direction: column;
-    background-position: center;
-    background-size: cover;
-    background-image: url('https://atelier-de-jb.fr/wp-content/uploads/2021/01/217-scaled.jpg');
-    height: 100vh;
     justify-content: center;
   }
 
