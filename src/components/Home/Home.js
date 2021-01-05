@@ -30,6 +30,7 @@ const Home = () => {
 
     return (
         <>
+        <div className='home-wrapper'>
             <div className='mainHome'>
 
                 {/* <Header title='Accueil'/> */}
@@ -101,7 +102,7 @@ const Home = () => {
                 </div>
                 
             </div>
-            
+        </div>    
             {/* <Footer /> */}
         </>
 
