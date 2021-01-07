@@ -21,7 +21,7 @@ const CalendarEventModal = (props) => {
             endDate={data.endAt}
             avatar={data.Users[0].avatar}
             isMyDemand={data.isMyDemand}
-            userId={data.id}
+            userId={data.Users[0].id}
             contactedParentId={data.contactedParentId}
           />
         </ModalBody>

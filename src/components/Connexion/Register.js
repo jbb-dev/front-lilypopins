@@ -14,13 +14,16 @@ const Register = () => {
     
     return(
 
-        <div className='mainRegister'>
-
+      <div className='register-wrapper'>
+        
           <Header title='Inscription' />
+
+          <div className='mainRegister'>
+
+          <h3 className='register-welcome'>Créez votre profil de connexion</h3>
 
           <div className="register_page">
 
-            <h3 className='register-welcome'>Créez votre profil de connexion</h3>
 
             <div className="register_page">
               <form className="register_forms">
@@ -69,6 +72,7 @@ const Register = () => {
             </div>
           </div>
       </div>
+    </div>
       )
 }
 

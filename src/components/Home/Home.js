@@ -4,7 +4,8 @@ import { Link } from "react-router-dom";
 import './home.css'
 import Header from '../common/Header/Header'
 import Footer from '../common/Footer/Footer'
-import Notification from '../common/Others/Notification'
+import NotificationBadge from 'react-notification-badge';
+import {Effect} from 'react-notification-badge';
 
 const { REACT_APP_API_URL } = process.env;
 
@@ -14,8 +15,11 @@ const Home = () => {
     const token = localStorage.token 
 
     const [dataUser, setDataUser] = useState(null) 
-    const getMyProfile = () => {
-        Axios
+
+    const [count, setCount] = useState(null)
+ 
+    const getMyProfile = async () => {
+        await Axios
         .get(`${REACT_APP_API_URL}/api/users/my-profile`, { 
             headers : { 'Authorization' : 'Bearer ' + token}
             })
@@ -23,25 +27,39 @@ const Home = () => {
         .catch((error)=> console.log(error))
     }
 
+    const countOpenedDemandsAndGards = async () => {
+        await Axios
+        .get(`${REACT_APP_API_URL}/api/demands/count`, 
+            { 
+                headers : { 'Authorization' : 'Bearer ' + token },
+            })
+        .then((res) => setCount(res.data))
+        .catch((error)=> console.log(error)) 
+    }
+
+    const logout = async () => {
+        console.log('logout')
+        await localStorage.setItem("token", "")
+        window.location.href='/'
+    }
+
     // Start to catch user info and then, save it in the dataUser
     useEffect(() => {
         getMyProfile()
+        countOpenedDemandsAndGards()
     }, []);
 
     return (
         <>
         <div className='home-wrapper'>
+        <Header title='lilypopins' home={true} logout={logout} />
+        {dataUser !== null ? 
             <div className='mainHome'>
-
-                {/* <Header title='Accueil'/> */}
-
-                {/* <Notification /> */}
                 <div>
-                    <h3 className='home-welcome'>Bienvenue sur lilypopins !</h3>
-                    <p className='home-welcomeText'>Le baby-sitting collaboratif entre parents</p>
+                    <h3 className='home-welcome'>Bonjour {dataUser.firstname}</h3>
                 </div>
 
-                <div className='homeBtn-wrapper'>
+                <div>
                     <Link to="/search" style={{ textDecoration: "none" }}>
                         <div className='homeBtn' >
                             <div className='contentBtn'>
@@ -64,6 +82,20 @@ const Home = () => {
                                 <div className="textBtn-wrapper">
                                     <p className='textBtn'> Mon suivi des gardes </p>
                                 </div>
+                            </div>
+                            <div>
+                                <NotificationBadge count={count} effect={Effect.SCALE} style={{
+                                    'backgroundColor' : '#ff3dc2bb', 
+                                    'top'             : '-5px', 
+                                    'right'           : '-5px', 
+                                    'min-width'       : '28px',
+                                    'padding-top'     : '7px',
+                                    'padding-right'   : '9px',
+                                    'padding-bottom'  : '7px',
+                                    'padding-left'    : '9px',
+                                    'border-radius'   : '15px'
+                                    }} 
+                                />
                             </div>
                         </div>
                     </Link>
@@ -93,15 +125,9 @@ const Home = () => {
                             </div>
                         </div>
                     </Link>
-                </div>
-
-                <div>
-                    <Link to="/" style={{ textDecoration: "none" }}>
-                        <p className="logout">Se déconnecter</p>
-                    </Link>
-                </div>
-                
+                </div>                
             </div>
+            : <p style={{'text-align' : 'center'}}>Chargement en cours...</p>}
         </div>    
             {/* <Footer /> */}
         </>

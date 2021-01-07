@@ -19,6 +19,8 @@ const Conversation = (props) => {
     const [conversation, setConversation] = useState(null)
     // the message to send
     const [myMessage, setMyMessage] = useState('')
+    // message is sent ?
+    const [isSent, setIsSent] = useState(false)
     // the last message to display by scrolling bottom
     const divRef = useRef(null);
 
@@ -45,8 +47,8 @@ const Conversation = (props) => {
           .catch((error)=> console.log(error))
     }
 
-    const getMyId = () => {
-        Axios.get(`${REACT_APP_API_URL}/api/users/myId`, { 
+    async function getMyId () {
+        await Axios.get(`${REACT_APP_API_URL}/api/users/myId`, { 
             headers : { 'Authorization' : 'Bearer ' + token}
           })
           .then((res) => setMyId(res.data))
@@ -54,21 +56,21 @@ const Conversation = (props) => {
    
     }
 
-    const sendMyMessage = (e) => {
+    async function sendMyMessage (e) {
         e.preventDefault()
-        Axios
+        await Axios
         .post(`${REACT_APP_API_URL}/api/conversations/user/${otherUserId}/newMessage`, { message : myMessage} , 
             { 
           headers : { 'Authorization' : 'Bearer ' + token}
             })
-        .then(window.location.reload())
+        .then(setIsSent(!isSent))
         .catch((error)=> console.log(error))
       }
 
     useEffect(() => {
         getConversations()
         getMyId()
-      }, []);
+      }, [isSent]);
 
     useEffect(() => {
         scrollToBottom() 
@@ -108,7 +110,7 @@ const Conversation = (props) => {
                     </div>
 
                 :
-                    <p style={{'text-align' : 'center'}}>Aucune conversation trouvée</p>
+                    <p style={{'textAlign' : 'center'}}>Aucune conversation trouvée</p>
                 }
             </div>
 

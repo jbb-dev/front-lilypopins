@@ -5,22 +5,17 @@
   background-size: cover;
   background-image: url('https://atelier-de-jb.fr/wp-content/uploads/2021/01/217-scaled.jpg');
   height: 100vh;
-  display : flex;
 }
 .mainHome {
     display: flex;
     flex-direction: column;
-    justify-content: center;
+    justify-content: space-evenly;
   }
 
   .home-welcome {
-    font-family: 'Archivo Black', sans-serif, Arial, "Helvetica Neue", Helvetica, sans-serif;
-    font-size: 2.2em;
-
-  }
-
-  p {
-    margin : 0 !important
+    font-size : 1.5em;
+    margin-top: 20px;
+    margin-bottom: 50px;
   }
 
   .home-welcomeText {
@@ -45,31 +40,29 @@
   .contentBtn {
     display: flex;
     align-items: baseline;
-    background-color: #c0d6e498;
+    background-color: #F9EAEE;
     border-radius: 10px;
+    width: 100%;
   }
 
   .icon-wrapper {
     display: flex;
     justify-content: center;
     align-items: center;
-    background-color: #ee88a3a2;
+    background-color: #DF879F;
     width: 4.5em;
-    height: 5.5em;
+    height: 4.5em;
     border-radius: 10px 0px 0px 10px;
   }
       /* menu button */
 
-  .homeBtn-wrapper {
-    padding: 1em;
-  }
-
   .homeBtn {
     margin: 0.8em 0.8em 1.5em 0.8em;
-    height: 5.5em;
+    height: 4.5em;
     border-radius: 10px;
     box-shadow: 1px 3px 3px 2px #77838F65;
-    color: black
+    color: black;
+    display : flex;
   }
 
   .homeBtn:hover {
