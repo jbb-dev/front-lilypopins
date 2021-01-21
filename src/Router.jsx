@@ -17,6 +17,7 @@ import MyBabbySitting from './components/Suivi/MyBabbySittings'
 import DemandDetail from './components/Suivi/DemandDetail'
 import Conversation from './components/common/MailBox/Conversation'
 import MyCalendar from './components/Calendar/MyCalendar'
+import Test from './components/Example'
 
 import { UserContext } from './context/UserContext'
 import { userProfileContext } from './context/UserContext'
@@ -41,6 +42,7 @@ const Router = () => {
         <>
             <Switch>
                 <Route exact path="/" component={Login} />
+                <Route exact path="/test" component={Test} />
                 <Route exact path="/home" component={Home} />
                 <Route exact path="/my-profile" component={MyProfile} />
                 <Route exact path="/my-children/:childId" component={ChildProfile} />

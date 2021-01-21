@@ -1,0 +1,44 @@
+.slidingButton-check {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 0.2em;
+    text-align: left;
+    width: 10em;
+  }
+  
+  input[type="checkbox"].custom-control-input {
+    display: none;
+  }
+  input[type="checkbox"].custom-control-input + label {
+    box-sizing: border-box;
+    display: inline-block;
+    width: 3rem;
+    height: 1.5rem;
+    border-radius: 1.5rem;
+    padding: 10px;
+    background-color: #c0ceda;
+    transition: all 0.5s;
+  }
+  input[type="checkbox"].custom-control-input + label::before {
+    box-sizing: border-box;
+    display: block;
+    content: "";
+    height: calc(1.6rem - 3px);
+    width: calc(1.6rem - 3px);
+    border-radius: 50%;
+    background-color: #fff;
+    transition: all 0.5s;
+    margin-left: 1.5em;
+    margin-top: -0.2em;
+    border: #c0ceda solid 1px;
+  }
+  input[type="checkbox"].custom-control-input:checked + label {
+    background-color: #ff3dc2bb;
+  }
+  input[type="checkbox"].custom-control-input:checked + label::before {
+    margin-left: 3.1em;
+    background-color: #fff;
+    border: #ff3dc2bb solid 1px;
+    margin-top: -0.19em;
+  }

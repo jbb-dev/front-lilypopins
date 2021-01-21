@@ -1,9 +1,8 @@
-import React, {useState} from 'react'
+import React, {useState} from 'react';
 import { Link, Redirect } from "react-router-dom";
 import './login.css'
 import Next from '../common/Buttons/Next'
 import Axios from 'axios'
-import logo from "../../components/common/Logo/logo.png"
 
 const { REACT_APP_API_URL } = process.env;
 
@@ -72,7 +71,7 @@ const Login = () => {
                     />
                     </label>
                 </form>
-                
+
                 { dataUser.email && dataUser.password !== '' ? 
                     <Next title='Se connecter' onClick={() => login()} status='active'/>
                 : 

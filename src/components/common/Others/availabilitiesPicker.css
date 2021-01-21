@@ -1,0 +1,13 @@
+.day-wrapper {
+    display: flex;
+    margin-bottom: 0.5em;
+}
+
+.day-time-content {
+    display: flex;
+}
+
+.day-time-select {
+    display: flex;
+    align-items: baseline;
+}

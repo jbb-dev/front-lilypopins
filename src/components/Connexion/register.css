@@ -1,15 +1,17 @@
 
   /* register page */
 
-  .register-wrapper {
-    /* background-position: center;
-    background-size: cover;
-    background-image: url('https://atelier-de-jb.fr/wp-content/uploads/2021/01/217-scaled.jpg'); */
-    height: 100vh;
+  .registerForm-wrapper {
+    display: flex;
+    align-items: center;
+    flex-direction: column;
   }
-  
 
-  .mainRegister {
+  .registerForm {
+    width: 70vw;
+  }
+
+  /* .mainRegister {
     display: flex;
     flex-direction: column;
     justify-content: center;
@@ -96,4 +98,4 @@
   .register_go_back {
     color: #893cc1;
     font-weight: 1em;
-  }
+  } */

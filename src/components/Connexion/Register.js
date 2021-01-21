@@ -1,5 +1,6 @@
 import React, { useContext } from 'react'
 import { Link } from "react-router-dom";
+import { Button, Col, Form, FormGroup, Label, Input, FormText } from 'reactstrap';
 import './register.css'
 import Next from '../common/Buttons/Next'
 import Header from '../common/Header/Header'
@@ -14,47 +15,37 @@ const Register = () => {
     
     return(
 
-      <div className='register-wrapper'>
+      <div>
         
-          <Header title='Inscription' />
-
-          <div className='mainRegister'>
-
-          <h3 className='register-welcome'>Créez votre profil de connexion</h3>
-
-          <div className="register_page">
-
-
-            <div className="register_page">
-              <form className="register_forms">
-                <label>
-                  <input
-                    className="register_input_text"
-                    type="email"
-                    placeholder=" Adresse mail"
-                    required
-                    value={userProfile.email}
-                    onChange={(e) =>
-                      setUserProfile({ ...userProfile, email: e.target.value })
-                    }
-                  />
-                </label>
-              </form>
-              <form className="register_forms">
-                <label className="register_mdp">
-                  <input
-                    className="register_input_text"
-                    type="password"
-                    placeholder=" Mot de passe"
-                    required
-                    value={userProfile.password}
-                    onChange={(e) =>
-                      setUserProfile({ ...userProfile, password: e.target.value })
-                    }
-                  />
-                </label>
-              </form>
-            </div>
+      <Header title='Inscription' />  
+      <div className='registerForm-wrapper'> 
+        <h3 >Créez votre profil de connexion</h3>     
+        <div className='registerForm'>
+          <Form>
+            <FormGroup>
+                <Label for="exampleEmail">Email</Label>
+                <Input 
+                  type="email" 
+                  name="email" 
+                  id="email" 
+                  placeholder="Votre email"                     
+                  value={userProfile.email}
+                  onChange={e => setUserProfile({ ...userProfile, email: e.target.value })}
+                />
+            </FormGroup>
+            <FormGroup>
+                <Label for="examplePassword">Password</Label>
+                <Input 
+                  type="password" 
+                  name="password" 
+                  id="password" 
+                  placeholder="Votre mot de passe" 
+                  value={userProfile.password}
+                  onChange={e => setUserProfile({ ...userProfile, password: e.target.value })}
+                />
+            </FormGroup>
+          </Form>       
+        </div>
             { userProfile.email && userProfile.password !== '' ? 
               <div>
                 <Link to="/register-step2" style={{ textDecoration: "none" }}>
@@ -70,9 +61,8 @@ const Register = () => {
                 <p className="register_low_text">Se connecter</p>
               </Link>
             </div>
-          </div>
+        </div>
       </div>
-    </div>
       )
 }
 
